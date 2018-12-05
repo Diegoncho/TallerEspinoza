@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 use App\Departamentos;
 use App\Empleados;
@@ -32,7 +33,7 @@ class EmpleadoController extends Controller
             'fecha_nac' => 'required|date',
             'edad' => 'required|max:5',
             'sexo' => 'required',
-            'iddepartamento' => 'required',
+            'departamento_id' => 'required',
             'dui' => 'required|max:20',
             'nit' => 'required|max:20',
             'afp' => 'required|max:255',
@@ -64,7 +65,7 @@ class EmpleadoController extends Controller
             $Empleados->fecha_nac = $request->fecha_nac;
             $Empleados->edad = $request->edad;
             $Empleados->sexo = $request->sexo;
-            $Empleados->iddepartamento = $request->iddepartamento;
+            $Empleados->departamento_id = $request->departamento_id;
             $Empleados->dui = $request->dui;
             $Empleados->nit = $request->nit;
             $Empleados->afp = $request->afp;
