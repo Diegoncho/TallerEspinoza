@@ -34,8 +34,11 @@ Route::get('menu', 'MenuController@index')->name('menu');
 
 /*---------------------------------------*/
 /* Formulario de Registrar Empleado */
-
 Route::get('/empleadoAdd', function(){
     return view('empleadoAdd');
 });
 Route::get('empleadoAdd', 'EmpleadoController@create')->name('empleadoAdd');
+
+
+/* Agregar Empleado */
+Route::post('/empleadoAdd', 'EmpleadoController@post');
