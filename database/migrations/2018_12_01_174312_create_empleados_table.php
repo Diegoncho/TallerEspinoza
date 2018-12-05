@@ -28,7 +28,7 @@ class CreateEmpleadosTable extends Migration
             $table->string('nit',20);
             $table->string('afp',255);
             $table->string('email',255);
-            $table->string('img',128);
+            $table->longText('img');
             $table->timestamps();
 
             //Relaciones
