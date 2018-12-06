@@ -1,6 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="panel panel-default">
+        <div class="panel-heading flexbox">
+            <div class="auth">
+                Bienvenido: <b>{{ auth()->user()->name }}</b> 
+            </div>
+
+            <div class="options">
+                <a href="{{ route('menu') }}"><i class="icon-build"></i> Menu</a>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -88,7 +100,7 @@
 
                             <div class="col-md-6">
                                 <select name="departamento_id" id="departamento_id" class="form-control">       
-                                    <option value="{{ old('departamento_id') }}" Selected disabled >Seleccione el Departamento</option>
+                                    <option Selected disabled>Seleccione el Departamento</option>
                                     
                                 @foreach($Departamentos as $row)
                                     <option value="{{ $row->id }}">{{ $row->nombre }}</option>

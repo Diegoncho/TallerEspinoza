@@ -7,7 +7,7 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">Bienvenido: <b>{{ auth()->user()->name }}</b></div>
-    </div>
+</div>
 
     <div class="menu-icons">
 
@@ -146,7 +146,4 @@
         }
     })();
 </script>
-
-@include('sweet::alert')
-
 @endsection
