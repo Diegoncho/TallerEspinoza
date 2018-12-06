@@ -23,6 +23,8 @@
                         {{ csrf_field() }}
         
                         <div class="form-group {{ $errors->has('nombres') ? 'has-error' : ''}}">
+                            <div class="posting-read">Información del Empleado <i class="icon-contacts"></i></div>
+
                             <label for="nombres" class="col-md-4 control-label">Nombres</label>
 
                             <div class="col-md-6">
@@ -96,6 +98,7 @@
                         </div>
 
                         <div class="form-group {{ $errors->has('departamento_id') ? 'has-error' : ''}}">
+                            <div class="posting-read">Datos Personales Basicos <i class="icon-folder_shared"></i></div>
                             <label for="iddepartamento" class="col-md-4 control-label">Departamento</label>
 
                             <div class="col-md-6">
