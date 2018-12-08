@@ -5,8 +5,14 @@
 <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="{{ asset('sweetalert/sweetalert.min.js') }}"></script>
 
-<div class="panel panel-default">
-    <div class="panel-heading">Bienvenido: <b>{{ auth()->user()->name }}</b></div>
+<div class="menu-application flexbox">
+    <div class="auth flex">
+        <div class="menu-icon"></div>
+
+        <div class="menu-text flexbox">
+            Bienvenido: {{ auth()->user()->name }}
+        </div>
+    </div>
 </div>
 
     <div class="menu-icons">
