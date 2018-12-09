@@ -1,13 +1,19 @@
 
 <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="{{ asset('sweetalert/sweetalert.min.js') }}"></script>
+<script src="{{ asset('ligthbox/lightbox.js') }}"></script>
+<link rel="stylesheet" href="{{ asset('ligthbox/lightbox.css') }}">
+
 <div class="menu-application flexbox">
-    <div class="auth flex">
-        <div class="menu-icon"></div>
+        <div class="auth flex">
+            <a href="img/icon.png" data-lightbox="icon" data-title="photo-perfil">
+                <div class="menu-icon"></div>
+            </a>
             <div class="menu-text flexbox">
                 Bienvenido: {{ auth()->user()->name }}
             </div>
         </div>
+        
         <div class="options flex">
             <a href="{{ route('menu') }}"><i class="icon-build"></i> Menu</a>
 

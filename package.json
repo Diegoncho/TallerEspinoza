@@ -19,5 +19,8 @@
     "popper.js": "^1.12",
     "sweetalert": "2.0",
     "vue": "^2.5.17"
+  },
+  "dependencies": {
+    "lightbox2": "^2.10.0"
   }
 }
