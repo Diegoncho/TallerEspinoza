@@ -4,7 +4,7 @@
 
 @include('layouts.navbar')
 
-    <div class="panel panel-default">
+    <div class="panel panel-default" style="min-width: 800px">
         <div class="panel-heading" style="background:#f9f9f9"><b>Listado de empleados</b></div>
         <div class="panel-body">
             <a href="{{ route('empleadoAdd') }}" class="btn btn-info">Registrar nuevo empleado</a>

@@ -1,11 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/menu.css') }}">
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="{{ asset('sweetalert/sweetalert.min.js') }}"></script>
 
 @include('layouts.navbar')
+
+<link rel="stylesheet" href="{{ asset('css/menu.css') }}">
 
     <div class="menu-icons">
 
@@ -54,20 +53,23 @@
     <form action="{{ route('logout') }}" method="POST" id="form">
         {{ csrf_field() }}
 
-    <button type="submit">
-        <div class="panel-module" id="panel-module-4">
-            <div class="module-icon">
-                <i class="icon-power_settings_new"></i>
+        <button type="submit">
+            <div class="panel-module" id="panel-module-4">
+                <div class="module-icon">
+                    <i class="icon-power_settings_new"></i>
+                </div>
+                
+                <div class="module-title" id="module-title-4">Cerrar la Aplicación.</div>
+                
+                <div class="module-footer">
+                    Personalizado a tus necesidades.
+                </div>
             </div>
-            
-            <div class="module-title" id="module-title-4">Cerrar la Aplicación.</div>
-            
-            <div class="module-footer">
-                Personalizado a tus necesidades.
-            </div>
-        </div>
-    </button>
-</div>
+        </button>
+        
+    </form>
+
+    </div>
 
 <script type="text/javascript">
         $(function() {
