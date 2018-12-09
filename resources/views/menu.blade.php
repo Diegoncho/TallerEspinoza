@@ -5,19 +5,11 @@
 <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="{{ asset('sweetalert/sweetalert.min.js') }}"></script>
 
-<div class="menu-application flexbox">
-    <div class="auth flex">
-        <div class="menu-icon"></div>
-
-        <div class="menu-text flexbox">
-            Bienvenido: {{ auth()->user()->name }}
-        </div>
-    </div>
-</div>
+@include('layouts.navbar')
 
     <div class="menu-icons">
 
-    <a href="#">
+    <a href="{{ route('empleado') }}">
         <div class="panel-module" id="panel-module-1">
             <div class="module-icon">
                 <i class="icon-search"></i>
@@ -75,7 +67,6 @@
             </div>
         </div>
     </button>
-
 </div>
 
 <script type="text/javascript">
