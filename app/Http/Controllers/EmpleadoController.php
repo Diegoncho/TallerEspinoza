@@ -15,6 +15,13 @@ class EmpleadoController extends Controller
         $this->middleware('auth');
     }
 
+    public function index(){
+
+        $Empleados = Empleados::orderby('id','ASC')->paginate(1);
+
+        return view('CrudEmpleados.empleado' , compact('Empleados'));
+    }
+
     public function create(){
         
         $Departamentos = Departamentos::all();

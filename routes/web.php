@@ -33,6 +33,12 @@ Route::get('menu', 'MenuController@index')->name('menu');
 
 
 /*---------------------------------------*/
+/* Listar Empleados */
+Route::get('/empleado', function(){
+    return view('empleado');
+});
+Route::get('empleado', 'EmpleadoController@index')->name('empleado');
+
 /* Formulario de Registrar Empleado */
 Route::get('/empleadoAdd', function(){
     return view('empleadoAdd');
