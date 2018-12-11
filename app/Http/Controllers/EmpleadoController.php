@@ -17,7 +17,7 @@ class EmpleadoController extends Controller
 
     public function index(){
 
-        $Empleados = Empleados::orderby('id','ASC')->paginate(1);
+        $Empleados = Empleados::orderby('id','ASC')->paginate(7);
 
         return view('CrudEmpleados.empleado' , compact('Empleados'));
     }
@@ -57,7 +57,7 @@ class EmpleadoController extends Controller
             $file = $request->file('img');
     
             //obtenemos el nombre del archivo
-            $nombre = $file->getClientOriginalName();
+            $nombre = 'default'.time().'.'.$file->getClientOriginalExtension();
 
             //indicamos que queremos guardar un nuevo archivo en el disco local
             \Storage::disk('local')->put($nombre,  \File::get($file));
