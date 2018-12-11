@@ -347,6 +347,7 @@ class ComposerStaticInit713de9055dd86bace2858aa86b9ef261
     );
 
     public static $classMap = array (
+        'App\\Clientes' => __DIR__ . '/../..' . '/app/Clientes.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Departamentos' => __DIR__ . '/../..' . '/app/Departamentos.php',
         'App\\Empleados' => __DIR__ . '/../..' . '/app/Empleados.php',
@@ -356,6 +357,7 @@ class ComposerStaticInit713de9055dd86bace2858aa86b9ef261
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
+        'App\\Http\\Controllers\\ClienteController' => __DIR__ . '/../..' . '/app/Http/Controllers/ClienteController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\EmpleadoController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmpleadoController.php',
         'App\\Http\\Controllers\\MenuController' => __DIR__ . '/../..' . '/app/Http/Controllers/MenuController.php',
