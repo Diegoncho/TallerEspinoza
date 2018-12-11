@@ -24,12 +24,12 @@ class ProveedorController extends Controller
     public function post(Request $request){
 
         $validator = Validator::make($request->all(),[
-            'nombres_proveedor' => 'required|max:255',
-            'Nombre_contacto' => 'required|max:255',
+            'nombre_proveedor' => 'required|max:255',
+            'nombre_contacto' => 'required|max:255',
             'cargo_contacto' => 'required|max:255',
             'telefono' => 'required|max:10',
-            'ciudad' => 'required|max:20',
-            'pais' => 'required|max:20',
+            'ciudad' => 'required|max:255',
+            'pais' => 'required|max:255',
             'direccion' => 'required',
         ]);
 
@@ -41,7 +41,7 @@ class ProveedorController extends Controller
 
             $Proveedores = new Proveedores;
 
-            $Proveedores->nombres_proveedor = $request->nombres_proveedor;
+            $Proveedores->nombre_proveedor = $request->nombre_proveedor;
             $Proveedores->nombre_contacto = $request->nombre_contacto;
             $Proveedores->cargo_contacto = $request->cargo_contacto;
             $Proveedores->telefono = $request->telefono;
