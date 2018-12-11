@@ -81,6 +81,6 @@ class EmpleadoController extends Controller
 
             $Empleados->save();
 
-            return redirect('/menu');
+            return redirect('/empleado');
     }
 }
