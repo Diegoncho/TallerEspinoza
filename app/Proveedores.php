@@ -9,7 +9,7 @@ class Proveedores extends Model
     public $timestaps = false;
     
     protected $fillable = [
-        'id', 'nombre_proveedor', 'nombre_contacto','cargo_contacto','telefono','ciudad','pais',
-        'direccion'
+        'id', 'nombre_proveedor', 'nombre_contacto', 'cargo_contacto', 'telefono',
+        'ciudad', 'pais', 'direccion'
     ];
 }
