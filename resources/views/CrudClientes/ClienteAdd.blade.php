@@ -10,7 +10,7 @@
                 <div class="panel-heading">Insertar Cliente</div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" action="{{ route('empleadoAdd') }}" method="POST" enctype="multipart/form-data">
+                        <form class="form-horizontal" action="{{ route('clienteAdd') }}" method="POST">
                         {{ csrf_field() }}
         
                         <div class="form-group {{ $errors->has('nombres') ? 'has-error' : ''}}">
