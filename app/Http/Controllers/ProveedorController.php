@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-use App\Clientes;
+use App\Proveedores;
 
-class ProveedoresController extends Controller
+class ProveedorController extends Controller
 {
     public function __construct(){
         $this->middleware('auth');
@@ -15,7 +15,7 @@ class ProveedoresController extends Controller
 
     public function index(){
 
-        $Clientes = Clientes::orderby('id','ASC')->paginate(1);
+        $Proveedores = Proveedores::orderby('id','ASC')->paginate(1);
 
         return view('CrudProveedores.Proveedores' , compact('Proveedores'));
     }
@@ -39,17 +39,17 @@ class ProveedoresController extends Controller
             ->withErrors($validator);
         }
 
-            $Proveedor = new Proveedor;
+            $Proveedores = new Proveedores;
 
-            $Proveedor->nombres_proveedor = $request->nombres_proveedor;
-            $Proveedor->nombre_contacto = $request->nombre_contacto;
-            $Proveedor->cargo_contacto = $request->cargo_contacto;
-            $Proveedor->telefono = $request->telefono;
-            $Proveedor->ciudad = $request->ciudad;
-            $Proveedor->pais = $request->pais;
-            $Proveedor->direccion = $request->direccion;
+            $Proveedores->nombres_proveedor = $request->nombres_proveedor;
+            $Proveedores->nombre_contacto = $request->nombre_contacto;
+            $Proveedores->cargo_contacto = $request->cargo_contacto;
+            $Proveedores->telefono = $request->telefono;
+            $Proveedores->ciudad = $request->ciudad;
+            $Proveedores->pais = $request->pais;
+            $Proveedores->direccion = $request->direccion;
 
-            $Proveedor->save();
+            $Proveedores->save();
 
             return redirect('/menu');
     }

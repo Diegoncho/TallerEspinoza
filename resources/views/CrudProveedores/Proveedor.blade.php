@@ -23,7 +23,7 @@
             </thead>
 
             <tbody>
-            @foreach($Clientes as $row)
+            @foreach($Proveedores as $row)
                 <tr>
                     <td>{{ $row->id }}</td>
                     <td>{{ $row->nombres_proveedor }}</td>
