@@ -7,7 +7,7 @@
     <div class="panel panel-default" style="min-width: 800px">
         <div class="panel-heading" style="background:#f9f9f9"><b>Listado de clientes</b></div>
         <div class="panel-body">
-            <a href="{{ route('clientesAdd') }}" class="btn btn-info">Registrar nuevo cliente</a>
+            <a href="{{ route('clienteAdd') }}" class="btn btn-info">Registrar nuevo cliente</a>
             <hr>
             <table class="table table-striped">
             <thead>
