@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Validator;
 
 use App\Clientes;
 
-class ClientesController extends Controller
+class ClienteController extends Controller
 {
     //
     public function __construct(){
