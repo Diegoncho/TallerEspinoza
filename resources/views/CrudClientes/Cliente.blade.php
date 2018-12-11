@@ -7,7 +7,7 @@
     <div class="panel panel-default" style="min-width: 800px">
         <div class="panel-heading" style="background:#f9f9f9"><b>Listado de clientes</b></div>
         <div class="panel-body">
-            <a href="{{ route('empleadoAdd') }}" class="btn btn-info">Registrar nuevo cliente</a>
+            <a href="{{ route('clientesAdd') }}" class="btn btn-info">Registrar nuevo cliente</a>
             <hr>
             <table class="table table-striped">
             <thead>
@@ -19,7 +19,7 @@
             </thead>
 
             <tbody>
-            @foreach($Empleados as $row)
+            @foreach($Clientes as $row)
                 <tr>
                     <td>{{ $row->id }}</td>
                     <td>{{ $row->nombres }}</td>
