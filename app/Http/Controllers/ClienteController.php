@@ -18,9 +18,13 @@ class ClienteController extends Controller
 
         $Clientes = Clientes::orderby('id','ASC')->paginate(1);
 
-        return view('CrudClientes.Clientes' , compact('Clientes'));
+        return view('CrudClientes.cliente' , compact('Clientes'));
     }
 
+    public function create(){
+
+        return view('CrudClientes.clienteAdd');
+    }
 
     public function post(Request $request){
 
@@ -48,9 +52,9 @@ class ClienteController extends Controller
             $Clientes->dui = $request->dui;
             $Clientes->nit = $request->nit;
 
-            $Empleados->save();
+            $Clientes->save();
 
-            return redirect('/menu');
+            return redirect('/cliente');
     }
 
 }
