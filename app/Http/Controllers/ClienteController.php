@@ -14,9 +14,9 @@ class ClienteController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(){
+    public function index(Request $request){
 
-        $Clientes = Clientes::orderby('id','ASC')->paginate(1);
+        $Clientes = Clientes::name($request->get('name'))->orderby('id','ASC')->paginate(1);
 
         return view('CrudClientes.cliente' , compact('Clientes'));
     }
