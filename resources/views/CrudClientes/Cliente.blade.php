@@ -7,8 +7,19 @@
     <div class="panel panel-default" style="min-width: 800px">
         <div class="panel-heading" style="background:#f9f9f9"><b>Listado de clientes</b></div>
         <div class="panel-body">
+
+            <form  action="{{ route('cliente') }}" class="navbar-form navbar-left pull-right" method="GET" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="name" placeholder="Nombre de cliente">
+                </div>
+                <button type="submit" class="btn btn-default">Buscar</button>
+            </form>
+
             <a href="{{ route('clienteAdd') }}" class="btn btn-info">Registrar nuevo cliente</a>
+
+            <p>Hay {{ $Clientes->total() }} clientes</p>
             <hr>
+
             <table class="table table-striped">
             <thead>
                 <th>#</th>
