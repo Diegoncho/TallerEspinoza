@@ -7,11 +7,22 @@
     <div class="panel panel-default" style="min-width: 800px">
         <div class="panel-heading" style="background:#f9f9f9"><b>Listado de empleados</b></div>
         <div class="panel-body">
+
+            <form  action="{{ route('empleado') }}" class="navbar-form navbar-left pull-right" method="GET" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="name" placeholder="Nombre de empleado">
+                </div>
+                <button type="submit" class="btn btn-default">Buscar</button>
+            </form>
+
             <a href="{{ route('empleadoAdd') }}" class="btn btn-info">Registrar nuevo empleado</a>
+            
+            <p>Hay {{ $Empleados->total() }} empleados</p>
             <hr>
+
             <table class="table table-striped">
             <thead>
-                <th>ID</th>
+                <th>#</th>
                 <th>Nombres</th>
                 <th>Apellidos</th>
                 <th>Teléfono</th>
