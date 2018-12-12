@@ -11,7 +11,7 @@
             <hr>
             <table class="table table-striped">
             <thead>
-                <th>ID</th>
+                <th>#</th>
                 <th>Nombres</th>
                 <th>Apellidos</th>
                 <th>Teléfono</th>
