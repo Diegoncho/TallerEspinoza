@@ -15,9 +15,9 @@ class EmpleadoController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(){
+    public function index(Request $request){
 
-        $Empleados = Empleados::orderby('id','ASC')->paginate(7);
+        $Empleados = Empleados::name($request->get('name'))->orderby('id','ASC')->paginate(7);
 
         return view('CrudEmpleados.empleado' , compact('Empleados'));
     }
