@@ -15,7 +15,7 @@
                 <button type="submit" class="btn btn-default">Buscar</button>
             </form>
 
-            <a href="{{ route('empleadoAdd') }}" class="btn btn-info">Registrar nuevo empleado</a>
+            <a href="{{ route('empleadoAdd') }}" class="btn btn-primary">Registrar nuevo empleado</a>
             
             <p>Hay {{ $Empleados->total() }} empleados</p>
             <hr>

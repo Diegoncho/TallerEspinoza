@@ -15,7 +15,7 @@
                 <button type="submit" class="btn btn-default">Buscar</button>
             </form>
 
-            <a href="{{ route('clienteAdd') }}" class="btn btn-info">Registrar nuevo cliente</a>
+            <a href="{{ route('clienteAdd') }}" class="btn btn-primary">Registrar nuevo cliente</a>
 
             <p>Hay {{ $Clientes->total() }} clientes</p>
             <hr>
