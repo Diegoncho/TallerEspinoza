@@ -53,7 +53,7 @@
     <form action="{{ route('logout') }}" method="POST" id="form">
         {{ csrf_field() }}
 
-        <button type="submit">
+        <button type="submit" class="btn-none">
             <div class="panel-module" id="panel-module-4">
                 <div class="module-icon">
                     <i class="icon-power_settings_new"></i>
