@@ -83,4 +83,15 @@ class EmpleadoController extends Controller
 
             return redirect('/empleado');
     }
+
+    public function delete($id){
+        
+        $Empleados = Empleados::findOrFail($id);
+
+        $Empleados->delete();
+
+        \Session::flash('message', $Empleados->nombres.' '. $Empleados->apellidos.' Fue eliminado.');
+
+        return redirect('/empleado');
+    }
 }
