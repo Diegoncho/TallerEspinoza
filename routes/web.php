@@ -48,6 +48,9 @@ Route::get('empleadoAdd', 'EmpleadoController@create')->name('empleadoAdd');
 
 /* Agregar Empleado */
 Route::post('/empleadoAdd', 'EmpleadoController@post');
+
+/* Eliminar Empleado */
+Route::delete('/empleado/{id}', 'EmpleadoController@delete');
 /*---------------------------------------*/
 
 
