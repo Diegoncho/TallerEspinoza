@@ -71,4 +71,7 @@ Route::get('clienteAdd', 'ClienteController@create')->name('clienteAdd');
 
 /* Agregar Cliente */
 Route::post('/clienteAdd', 'ClienteController@post');
+
+/* Eliminar Cliente */
+Route::delete('/cliente/{id}', 'ClienteController@delete');
 /*---------------------------------------*/
