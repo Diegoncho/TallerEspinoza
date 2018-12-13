@@ -7,6 +7,11 @@
     <div class="panel panel-default" style="min-width: 800px">
         <div class="panel-heading" style="background:#f9f9f9"><b>Listado de empleados</b></div>
         <div class="panel-body">
+            @if (Session::has('message'))
+                <div class="alert alert-success">
+                    <i class="icon-check_circle"></i> {{ Session::get('message') }}
+                </div>
+            @endif
 
             <form  action="{{ route('empleado') }}" class="navbar-form navbar-left pull-right" method="GET" role="search">
                 <div class="form-group">
@@ -32,7 +37,7 @@
 
             <tbody>
             @foreach($Empleados as $row)
-                <tr>
+                <tr data-id="{{ $row->id }}">
                     <td>{{ $row->id }}</td>
                     <td>{{ $row->nombres }}</td>
                     <td>{{ $row->apellidos }}</td>
@@ -41,7 +46,7 @@
                     <td>
                         <a href="" class="btn btn-info"><span class="icon-visibility"></span></a>
                         <a href="" class="btn btn-warning"><span class="icon-mode_edit"></span></a>
-                        <a href="" class="btn btn-danger"><span class="icon-highlight_off"></span></a>
+                        <a href="#" class="btn btn-danger"><span class="icon-highlight_off"></span></a>
                     </td>
                 </tr>
             @endforeach
@@ -51,5 +56,33 @@
     </div>
 
 {{ $Empleados->render() }}
+
+<form action="{{ route('empleado') }}/id" method="POST" id="form-delete">
+    {{ csrf_field() }}
+    {{ method_field('DELETE') }}                           
+</form>
+
+<script type="text/javascript">
+        $(document).ready(function (){
+            $('.btn-danger').click(function (e){
+                e.preventDefault();
+
+                var row = $(this).parents('tr');
+                var id = row.data('id');
+                var form = $('#form-delete');
+                var url = form.attr('action').replace('id', id);
+                var data = form.serialize();
+
+                row.fadeOut();
+
+                $.post(url, data, function(result){
+                }).fail(function (){
+                    alert('El usuario no fue eliminado');
+                    row.show();
+                });
+                
+            });
+        });
+</script>
 
 @endsection
