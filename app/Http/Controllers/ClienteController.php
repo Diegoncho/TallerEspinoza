@@ -26,6 +26,13 @@ class ClienteController extends Controller
         return view('CrudClientes.clienteAdd');
     }
 
+    public function edit($id){
+
+        $Clientes = Clientes::findOrFail($id);
+
+        return view('CrudClientes.clienteEdit', compact('Clientes'));
+    }
+
     public function post(Request $request){
 
         $validator = Validator::make($request->all(),[
@@ -52,7 +59,38 @@ class ClienteController extends Controller
             $Clientes->dui = $request->dui;
             $Clientes->nit = $request->nit;
 
-            $Clientes->save();
+            $Clientes->save(); 
+
+            return redirect('/cliente');
+    }
+
+    public function put(Request $request, $id){
+
+        $validator = Validator::make($request->all(),[
+            'nombres' => 'required|max:255',
+            'apellidos' => 'required|max:255',
+            'direccion' => 'required',
+            'telefono' => 'required|max:10',
+            'dui' => 'required|max:20',
+            'nit' => 'required|max:20',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect("/clienteEdit/$id")
+            ->withInput()
+            ->withErrors($validator);
+        }
+
+            $Clientes = Clientes::findOrFail($id);
+
+            $Clientes->nombres = $request->nombres;
+            $Clientes->apellidos = $request->apellidos;
+            $Clientes->direccion = $request->direccion;
+            $Clientes->telefono = $request->telefono;
+            $Clientes->dui = $request->dui;
+            $Clientes->nit = $request->nit;
+
+            $Clientes->save(); 
 
             return redirect('/cliente');
     }
