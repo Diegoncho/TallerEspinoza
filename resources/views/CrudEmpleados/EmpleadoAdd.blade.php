@@ -46,7 +46,7 @@
                             <label for="telefono" class="col-md-4 control-label">Teléfono</label>
 
                             <div class="col-md-6">
-                                <input id="telefono" type="text" class="form-control" name="telefono" value="{{ old('telefono') }}">
+                                <input id="telefono" type="tel" class="form-control" name="telefono" value="{{ old('telefono') }}">
                                 {!! $errors->first('telefono','<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
@@ -73,7 +73,7 @@
                             <label for="edad" class="col-md-4 control-label">Edad</label>
 
                             <div class="col-md-6">
-                                <input id="edad" type="text" class="form-control" name="edad" value="{{ old('edad') }}">
+                                <input id="edad" type="number" class="form-control" name="edad" value="{{ old('edad') }}">
                                 {!! $errors->first('edad','<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
@@ -152,7 +152,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary btn-block">
-                                    Insertar
+                                    <i class="icon-add_circle"></i> Insertar
                                 </button>
                             </div>
                         </div>
