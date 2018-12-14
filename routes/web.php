@@ -77,9 +77,18 @@ Route::get('/clienteAdd', function(){
 });
 Route::get('clienteAdd', 'ClienteController@create')->name('clienteAdd');
 
+/* Formulario de Editar Cliente */
+Route::get('/clienteEdit/{id}', function($id){
+    return view('clienteEdit');
+});
+Route::get('/clienteEdit/{id}', 'ClienteController@edit')->name('clienteEdit');
+
 
 /* Agregar Cliente */
 Route::post('/clienteAdd', 'ClienteController@post');
+
+/* Editar Empleado */
+Route::put('/clienteEdit/{id}', 'ClienteController@put');
 
 /* Eliminar Cliente */
 Route::delete('/cliente/{id}', 'ClienteController@delete');
