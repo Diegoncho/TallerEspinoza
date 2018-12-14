@@ -10,22 +10,22 @@
                 <div class="panel-heading">Insertar Proveedor</div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" action="{{ route('empleadoAdd') }}" method="POST" enctype="multipart/form-data">
+                        <form class="form-horizontal" action="{{ route('proveedorAdd') }}" method="POST">
                         {{ csrf_field() }}
         
-                        <div class="form-group {{ $errors->has('nombres') ? 'has-error' : ''}}">
+                        <div class="form-group {{ $errors->has('nombre_proveedor') ? 'has-error' : ''}}">
                             <div class="posting-read">Información del Proveedor <i class="icon-contacts"></i></div>
 
-                            <label for="nombres_proveedor" class="col-md-4 control-label">Nombre del Proveedor</label>
+                            <label for="nombre_proveedor" class="col-md-4 control-label">Nombre Proveedor</label>
 
                             <div class="col-md-6">
-                                <input id="nombres_proveedor" type="text" class="form-control" name="nombres_proveedor" value="{{ old('nombres_proveedor') }}">
-                                {!! $errors->first('nombres_proveedor','<span class="help-block">:message</span>') !!}
+                                <input id="nombre_proveedor" type="text" class="form-control" name="nombre_proveedor" value="{{ old('nombre_proveedor') }}">
+                                {!! $errors->first('nombre_proveedor','<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
                         
                         <div class="form-group {{ $errors->has('nombre_contacto') ? 'has-error' : ''}}">
-                            <label for="nombre_contacto" class="col-md-4 control-label">Nombre del Contacto</label>
+                            <label for="nombre_contacto" class="col-md-4 control-label">Nombre Contacto</label>
 
                             <div class="col-md-6">
                                 <input id="nombre_contacto" type="text" class="form-control" name="nombre_contacto" value="{{ old('nombre_contacto') }}"> 
@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="form-group {{ $errors->has('cargo_contacto') ? 'has-error' : ''}}">
-                            <label for="cargo_contacto" class="col-md-4 control-label">Cargo del Contacto</label>
+                            <label for="cargo_contacto" class="col-md-4 control-label">Cargo Contacto</label>
 
                             <div class="col-md-6">
                                 <input id="cargo_contacto" type="text" class="form-control" name="cargo_contacto" value="{{ old('cargo_contacto') }}"> 
@@ -55,7 +55,7 @@
                             <label for="telefono" class="col-md-4 control-label">Teléfono</label>
 
                             <div class="col-md-6">
-                                <input id="telefono" type="text" class="form-control" name="telefono" value="{{ old('telefono') }}">
+                                <input id="telefono" type="tel" class="form-control" name="telefono" value="{{ old('telefono') }}">
                                 {!! $errors->first('telefono','<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
@@ -68,14 +68,13 @@
                             </div>
                         </div>
                         <div class="form-group {{ $errors->has('pais') ? 'has-error' : ''}}">
-                            <label for="pais" class="col-md-4 control-label">Pais</label>
+                            <label for="pais" class="col-md-4 control-label">País</label>
 
                             <div class="col-md-6">
                                 <input id="pais" type="text" class="form-control" name="pais" value="{{ old('pais') }}">
                                 {!! $errors->first('pais','<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
-
                        
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
