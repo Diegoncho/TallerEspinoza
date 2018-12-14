@@ -87,9 +87,41 @@ Route::get('/clienteEdit/{id}', 'ClienteController@edit')->name('clienteEdit');
 /* Agregar Cliente */
 Route::post('/clienteAdd', 'ClienteController@post');
 
-/* Editar Empleado */
+/* Editar Cliente */
 Route::put('/clienteEdit/{id}', 'ClienteController@put');
 
 /* Eliminar Cliente */
 Route::delete('/cliente/{id}', 'ClienteController@delete');
+/*---------------------------------------*/
+
+
+//CRUD DE PROVEEDORES//
+/*---------------------------------------*/
+/* Listar Proveedores */
+Route::get('/proveedor', function(){
+    return view('proveedor');
+});
+Route::get('/proveedor', 'ProveedorController@index')->name('proveedor');
+
+/* Formulario de Registrar Proveedor */
+Route::get('/proveedorAdd', function(){
+    return view('proveedorAdd');
+});
+Route::get('proveedorAdd', 'ProveedorController@create')->name('proveedorAdd');
+
+/* Formulario de Editar Proveedor */
+Route::get('/proveedorEdit/{id}', function($id){
+    return view('proveedorEdit');
+});
+Route::get('/proveedorEdit/{id}', 'ProveedorController@edit')->name('proveedorEdit');
+
+
+/* Agregar Proveedor */
+Route::post('/proveedorAdd', 'ProveedorController@post');
+
+/* Editar Proveedor */
+Route::put('/proveedorEdit/{id}', 'ProveedorController@put');
+
+/* Eliminar Proveedor */
+Route::delete('/proveedor/{id}', 'ProveedorController@delete');
 /*---------------------------------------*/
