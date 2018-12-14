@@ -45,9 +45,18 @@ Route::get('/empleadoAdd', function(){
 });
 Route::get('empleadoAdd', 'EmpleadoController@create')->name('empleadoAdd');
 
+/* Formulario de Editar Empleado */
+Route::get('/empleadoEdit/{id}', function($id){
+    return view('empleadoEdit');
+});
+Route::get('/empleadoEdit/{id}', 'EmpleadoController@edit')->name('empleadoEdit');
+
 
 /* Agregar Empleado */
 Route::post('/empleadoAdd', 'EmpleadoController@post');
+
+/* Editar Empleado */
+Route::put('/empleadoEdit/{id}', 'EmpleadoController@put');
 
 /* Eliminar Empleado */
 Route::delete('/empleado/{id}', 'EmpleadoController@delete');
