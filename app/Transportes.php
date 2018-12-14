@@ -10,6 +10,6 @@ class Transportes extends Model
     
     protected $fillable = [
         'id', 'empleado_id', 'destino', 'fecha_inicio', 'fecha_fin', 'vehiculo_id',
-        'carga', 'tipo_ser'
+        'carga', 'servicio_id'
     ];
 }
