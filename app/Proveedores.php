@@ -10,6 +10,15 @@ class Proveedores extends Model
     
     protected $fillable = [
         'id', 'nombre_proveedor', 'nombre_contacto', 'cargo_contacto', 'telefono',
-        'ciudad', 'pais', 'direccion'
+        'ciudad', 'pais', 'direccion' 
     ];
+
+    public function scopeName($query, $name)
+    {
+        if (trim($name) != ""){
+
+            $query->where(\DB::raw("CONCAT(nombre_proveedor, ' ' ,nombre_contacto)"), "LIKE", "%$name%");
+        }
+
+    }
 }
