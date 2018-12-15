@@ -77,7 +77,7 @@
 
                 $.post(url, data, function(result){
                 }).fail(function (){
-                    alert('El usuario no fue eliminado');
+                    alert('El registro no fue eliminado');
                     row.show();
                 });
                 
