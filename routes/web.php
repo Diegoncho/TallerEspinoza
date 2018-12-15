@@ -101,7 +101,7 @@ Route::delete('/cliente/{id}', 'ClienteController@delete');
 Route::get('/proveedor', function(){
     return view('proveedor');
 });
-Route::get('/proveedor', 'ProveedorController@index')->name('proveedor');
+Route::get('proveedor', 'ProveedorController@index')->name('proveedor');
 
 /* Formulario de Registrar Proveedor */
 Route::get('/proveedorAdd', function(){
@@ -133,7 +133,7 @@ Route::delete('/proveedor/{id}', 'ProveedorController@delete');
 Route::get('/producto', function(){
     return view('producto');
 });
-Route::get('/producto', 'ProductoController@index')->name('producto');
+Route::get('producto', 'ProductoController@index')->name('producto');
 
 /* Formulario de Registrar Producto */
 Route::get('/productoAdd', function(){
@@ -156,3 +156,34 @@ Route::put('/productoEdit/{id}', 'ProductoController@put');
 
 /* Eliminar Producto */
 Route::delete('/producto/{id}', 'ProductoController@delete');
+
+
+//CRUD DE VEHICULOS//
+/*---------------------------------------*/
+/* Listar Vehiculos */
+Route::get('/vehiculo', function(){
+    return view('vehiculo');
+});
+Route::get('vehiculo', 'VehiculoController@index')->name('vehiculo');
+
+/* Formulario de Registrar Vehiculo */
+Route::get('/vehiculoAdd', function(){
+    return view('vehiculoAdd');
+});
+Route::get('vehiculoAdd', 'VehiculoController@create')->name('vehiculoAdd');
+
+/* Formulario de Editar Vehiculo */
+Route::get('/vehiculoEdit/{id}', function($id){
+    return view('vehiculoEdit');
+});
+Route::get('/vehiculoEdit/{id}', 'VehiculoController@edit')->name('vehiculoEdit');
+
+
+/* Agregar Vehiculo */
+Route::post('/vehiculoAdd', 'VehiculoController@post');
+
+/* Editar Vehiculo */
+Route::put('/vehiculoEdit/{id}', 'VehiculoController@put');
+
+/* Eliminar Vehiculo */
+Route::delete('/vehiculo/{id}', 'VehiculoController@delete');
