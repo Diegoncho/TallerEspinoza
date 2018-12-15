@@ -84,7 +84,7 @@
                         </div>
 
                         <div class="form-group {{ $errors->has('precio_regular') ? 'has-error' : ''}}">
-                            <label for="precio_regular" class="col-md-3">Cantidad del producto</label>
+                            <label for="precio_regular" class="col-md-3">Precio Regular</label>
 
                             <div class="col-md-12">
                                 <input id="precio_regular" type="number" min="0.00" step="0.01" class="form-control" name="precio_regular" value="{{ $Productos->precio_regular }}">                                                       
