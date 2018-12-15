@@ -12,4 +12,13 @@ class Productos extends Model
         'id', 'nombre', 'marca_id', 'descripcion', 'estado', 'cantidad', 'precio_costo',
         'precio_mayoreo', 'precio_regular'
     ];
+
+    public function scopeName($query, $name)
+    {
+        if (trim($name) != ""){
+
+            $query->where(\DB::raw("CONCAT(nombre)"), "LIKE", "%$name%");
+        }
+
+    }
 }
