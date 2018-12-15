@@ -96,7 +96,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary btn-block">
-                                <i class="icon-add_circle"></i> Insertar
+                                    <i class="icon-add_circle"></i> Insertar
                                 </button>
                             </div>
                         </div>
