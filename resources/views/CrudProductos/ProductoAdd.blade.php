@@ -13,23 +13,29 @@
                         <form class="form-horizontal" action="{{ route('productoAdd') }}" method="POST">
                         {{ csrf_field() }}
         
-                        <div class="form-group {{ $errors->has('nombres') ? 'has-error' : ''}}">
+                        <div class="form-group {{ $errors->has('nombre') ? 'has-error' : ''}}">
                             <div class="posting-read">Información del Producto <i class="icon-contacts"></i></div>
 
-                            <label for="nombres" class="col-md-4 control-label">Nombres</label>
+                            <label for="nombre" class="col-md-4 control-label">Nombre</label>
 
                             <div class="col-md-6">
-                                <input id="nombres" type="text" class="form-control" name="nombres" value="{{ old('nombres') }}">
-                                {!! $errors->first('nombres','<span class="help-block">:message</span>') !!}
+                                <input id="nombre" type="text" class="form-control" name="nombre" value="{{ old('nombre') }}">
+                                {!! $errors->first('nombre','<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
                         
-                        <div class="form-group {{ $errors->has('marca') ? 'has-error' : ''}}">
-                            <label for="marca" class="col-md-4 control-label">Marca</label>
+                        <div class="form-group {{ $errors->has('marca_id') ? 'has-error' : ''}}">
+                            <label for="idmarca" class="col-md-4 control-label">Marca</label>
 
                             <div class="col-md-6">
-                                <input id="marca" type="text" class="form-control" name="marca" value="{{ old('apellidos') }}"> 
-                                {!! $errors->first('marca','<span class="help-block">:message</span>') !!}
+                                <select name="marca_id" id="marca_id" class="form-control">       
+                                    <option Selected disabled>Seleccione la Marca</option>
+                                    
+                                @foreach($Pmarcas as $row)
+                                    <option value="{{ $row->id }}">{{ $row->marca }}</option>
+                                @endforeach
+                                </select>
+                                {!! $errors->first('marca_id','<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
 
@@ -41,43 +47,6 @@
                                 {!! $errors->first('descripcion','<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
-                        
-                        <div class="form-group {{ $errors->has('condicion') ? 'has-error' : ''}}">
-                            <label for="condicon" class="col-md-4 control-label">Condición</label>
-
-                            <div class="col-md-6">
-                                <input id="condicion" type="text" class="form-control" name="condicion" value="{{ old('telefono') }}">
-                                {!! $errors->first('condicion','<span class="help-block">:message</span>') !!}
-                            </div>
-                        </div>
-
-                         <div class="form-group {{ $errors->has('vl_precio_compra') ? 'has-error' : ''}}">
-                            <label for="vl_precio_compra" class="col-md-4 control-label">Valor de compra</label>
-
-                            <div class="col-md-6">
-                                <input id="vl_precio_compra" type="text" class="form-control" name="vl_precio_compra" value="{{ old('vl_precio_compra') }}">                              
-                                {!! $errors->first('vl_precio_compra','<span class="help-block">:message</span>') !!}
-                            </div>
-                        </div>
-
-                        <div class="form-group {{ $errors->has('precio_unitario') ? 'has-error' : ''}}">
-                            <label for="precio_unitario" class="col-md-4 control-label">Precio por unidad</label>
-
-                            <div class="col-md-6">
-                                <input id="precio_unitario" type="text" class="form-control" name="precio_unitario" value="{{ old('precio_unitario') }}">                                                       
-                                {!! $errors->first('precio_unitario','<span class="help-block">:message</span>') !!}
-                            </div>
-                        </div>
-
-                        <div class="form-group {{ $errors->has('c_existencia') ? 'has-error' : ''}}">
-                            <label for="c_existencia" class="col-md-4 control-label">Cantidad del producto</label>
-
-                            <div class="col-md-6">
-                                <input id="c_existencia" type="text" class="form-control" name="c_existencia" value="{{ old('c_existencia') }}">                                                       
-                                {!! $errors->first('c_existencia','<span class="help-block">:message</span>') !!}
-                            </div>
-                        </div>
-
 
                         <div class="form-group {{ $errors->has('estado') ? 'has-error' : ''}}">
                             <label for="estado" class="col-md-4 control-label">Estado</label>
@@ -87,11 +56,47 @@
                                 {!! $errors->first('estado','<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
+                        
+                        <div class="form-group {{ $errors->has('cantidad') ? 'has-error' : ''}}">
+                            <label for="cantidad" class="col-md-4 control-label">Cantidad</label>
+
+                            <div class="col-md-6">
+                                <input id="cantidad" type="number" min="1" class="form-control" name="cantidad" value="{{ old('cantidad') }}">
+                                {!! $errors->first('cantidad','<span class="help-block">:message</span>') !!}
+                            </div>
+                        </div>
+
+                         <div class="form-group {{ $errors->has('precio_costo') ? 'has-error' : ''}}">
+                            <label for="precio_costo" class="col-md-4 control-label">Precio Costo</label>
+
+                            <div class="col-md-6">
+                                <input id="precio_costo" type="number" min="0.00" step="0.01" class="form-control" name="precio_costo" value="{{ old('precio_costo') }}">                              
+                                {!! $errors->first('precio_costo','<span class="help-block">:message</span>') !!}
+                            </div>
+                        </div>
+
+                        <div class="form-group {{ $errors->has('precio_mayoreo') ? 'has-error' : ''}}">
+                            <label for="precio_mayoreo" class="col-md-4 control-label">Precio Mayoreo</label>
+
+                            <div class="col-md-6">
+                                <input id="precio_mayoreo" type="number" min="0.00" step="0.01" class="form-control" name="precio_mayoreo" value="{{ old('precio_mayoreo') }}">                                                       
+                                {!! $errors->first('precio_mayoreo','<span class="help-block">:message</span>') !!}
+                            </div>
+                        </div>
+
+                        <div class="form-group {{ $errors->has('precio_regular') ? 'has-error' : ''}}">
+                            <label for="precio_regular" class="col-md-4 control-label">Cantidad del producto</label>
+
+                            <div class="col-md-6">
+                                <input id="precio_regular" type="number" min="0.00" step="0.01" class="form-control" name="precio_regular" value="{{ old('precio_regular') }}">                                                       
+                                {!! $errors->first('precio_regular','<span class="help-block">:message</span>') !!}
+                            </div>
+                        </div>
                                                                      
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary btn-block">
-                                    Insertar
+                                <i class="icon-add_circle"></i> Insertar
                                 </button>
                             </div>
                         </div>
