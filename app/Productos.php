@@ -9,6 +9,7 @@ class Productos extends Model
     public $timestaps = false;
     
     protected $fillable = [
-        'id', 'nombre', 'marca', 'descripcion', 'estado', 'cantidad', 'precio_costo'
+        'id', 'nombre', 'marca_id', 'descripcion', 'estado', 'cantidad', 'precio_costo',
+        'precio_mayoreo', 'precio_regular'
     ];
 }
