@@ -9,7 +9,7 @@ class Compras extends Model
     public $timestaps = false;
     
     protected $fillable = [
-        'id', 'proveedor_id', 'fecha', 'nombre_producto', 'cantidad', 'precio_unitario', 'iva',
+        'id', 'proveedor_id', 'fecha', 'producto_id', 'cantidad', 'precio_unitario', 'iva',
         'subtotal', 'descuento', 'total'
     ];
 }
