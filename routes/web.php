@@ -125,3 +125,34 @@ Route::put('/proveedorEdit/{id}', 'ProveedorController@put');
 /* Eliminar Proveedor */
 Route::delete('/proveedor/{id}', 'ProveedorController@delete');
 /*---------------------------------------*/
+
+
+//CRUD DE PRODUCTOS//
+/*---------------------------------------*/
+/* Listar Productos */
+Route::get('/producto', function(){
+    return view('producto');
+});
+Route::get('/producto', 'ProductoController@index')->name('producto');
+
+/* Formulario de Registrar Producto */
+Route::get('/productoAdd', function(){
+    return view('productoAdd');
+});
+Route::get('productoAdd', 'ProductoController@create')->name('productoAdd');
+
+/* Formulario de Editar Producto */
+Route::get('/productoEdit/{id}', function($id){
+    return view('productoEdit');
+});
+Route::get('/productoEdit/{id}', 'ProductoController@edit')->name('productoEdit');
+
+
+/* Agregar Producto */
+Route::post('/productoAdd', 'ProductoController@post');
+
+/* Editar Producto */
+Route::put('/productoEdit/{id}', 'ProductoController@put');
+
+/* Eliminar Producto */
+Route::delete('/producto/{id}', 'ProductoController@delete');
