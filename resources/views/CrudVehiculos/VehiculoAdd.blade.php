@@ -10,86 +10,72 @@
                 <div class="panel-heading">Insertar Vehiculo</div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" action="{{ route('vehiculoAdd') }}" method="POST" enctype="multipart/form-data">
+                        <form class="form-horizontal" action="{{ route('vehiculoAdd') }}" method="POST">
                         {{ csrf_field() }}
-        
-                        <div class="form-group {{ $errors->has('tipo_vehiculo') ? 'has-error' : ''}}">
+
+                        <div class="form-group {{ $errors->has('marca_id') ? 'has-error' : ''}}">
                             <div class="posting-read">Información del Vehiculo <i class="icon-contacts"></i></div>
 
-                            <label for="tipo_vehiculo" class="col-md-4 control-label">Tipo de Vehiculo</label>
+                            <label for="idmarca" class="col-md-4 control-label">Marca</label>
 
                             <div class="col-md-6">
-                                <input id="tipo_vehiculo" type="text" class="form-control" name="tipo_vehiculo" value="{{ old('tipo_vehiculo') }}">
-                                {!! $errors->first('tipo_vehiculo','<span class="help-block">:message</span>') !!}
+                                <select name="marca_id" id="marca_id" class="form-control">       
+                                    <option Selected disabled>Seleccione la Marca</option>
+                                    
+                                @foreach($Vmarcas as $row)
+                                    <option value="{{ $row->id }}">{{ $row->marca }}</option>
+                                @endforeach
+                                </select>
+                                {!! $errors->first('marca_id','<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
                         
-                        <div class="form-group {{ $errors->has('marca') ? 'has-error' : ''}}">
-                            <label for="marca" class="col-md-4 control-label">Marca</label>
+                        <div class="form-group {{ $errors->has('modelo_id') ? 'has-error' : ''}}">
+                            <label for="idmodelo" class="col-md-4 control-label">Modelo</label>
 
                             <div class="col-md-6">
-                                <input id="marca" type="text" class="form-control" name="marca" value="{{ old('marca') }}"> 
-                                {!! $errors->first('marca','<span class="help-block">:message</span>') !!}
+                                <select name="modelo_id" id="modelo_id" class="form-control">       
+                                    <option Selected disabled>Seleccione el Modelo</option>
+                                    
+                                @foreach($Modelos as $row)
+                                    <option value="{{ $row->id }}">{{ $row->modelo }}</option>
+                                @endforeach
+                                </select>
+                                {!! $errors->first('modelo_id','<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
 
-                        <div class="form-group {{ $errors->has('modelo') ? 'has-error' : ''}}">
-                            <label for="modelo" class="col-md-4 control-label">Modelo</label>
-
-                            <div class="col-md-6">
-                                <input id="modelo" type="text" class="form-control" name="modelo" value="{{ old('modelo') }}">
-                                {!! $errors->first('modelo','<span class="help-block">:message</span>') !!}
-                            </div>
-                        </div>
-
-                        <div class="form-group {{ $errors->has('numero_placa') ? 'has-error' : ''}}">
-                            <label for="numero_placa" class="col-md-4 control-label">Numero de Placa</label>
-
-                            <div class="col-md-6">
-                                <input id="numero_placa" type="text" class="form-control" name="numero_placa" value="{{ old('numero_placa') }}">       
-                                {!! $errors->first('numero_placa','<span class="help-block">:message</span>') !!}
-                            </div>
-                        </div>
-
-                        <div class="form-group {{ $errors->has('capacidad') ? 'has-error' : ''}}">
-                            <label for="capacidad" class="col-md-4 control-label">Capacidad</label>
-
-                            <div class="col-md-6">
-                                <input id="capacidad" type="text" class="form-control" name="capacidad" value="{{ old('capacidad') }}">
-                                {!! $errors->first('capacidad','<span class="help-block">:message</span>') !!}
-                            </div>
-                        </div>
-
-                         <div class="form-group {{ $errors->has('color') ? 'has-error' : ''}}">
+                        <div class="form-group {{ $errors->has('color') ? 'has-error' : ''}}">
                             <label for="color" class="col-md-4 control-label">Color</label>
 
                             <div class="col-md-6">
-                                <input id="color" type="text" class="form-control" name="color" value="{{ old('color') }}">                              
+                                <input id="color" type="text" class="form-control" name="color" value="{{ old('color') }}">       
                                 {!! $errors->first('color','<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
 
-                        <div class="form-group {{ $errors->has('empleado_id') ? 'has-error' : ''}}">
-                            <div class="posting-read">Motorista Asignado <i class="icon-folder_shared"></i></div>
-                            <label for="id_empleado" class="col-md-4 control-label">Empleado</label>
+                        <div class="form-group {{ $errors->has('matricula') ? 'has-error' : ''}}">
+                            <label for="matricula" class="col-md-4 control-label">Matricula</label>
 
                             <div class="col-md-6">
-                                <select name="empleado_id" id="empleado_id" class="form-control">       
-                                    <option Selected disabled>Seleccione el Empleado</option>
-                                    
-                                @foreach($Empleados as $row)
-                                    <option value="{{ $row->id }}">{{ $row->nombre }}</option>
-                                @endforeach
-                                </select>
-                                {!! $errors->first('empleado_id','<span class="help-block">:message</span>') !!}
+                                <input id="matricula" type="text" class="form-control" name="matricula" value="{{ old('matricula') }}">
+                                {!! $errors->first('matricula','<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
 
+                         <div class="form-group {{ $errors->has('anio') ? 'has-error' : ''}}">
+                            <label for="anio" class="col-md-4 control-label">Año</label>
+
+                            <div class="col-md-6">
+                                <input id="anio" class="form-control" name="anio" value="{{ old('anio') }}">                              
+                                {!! $errors->first('anio','<span class="help-block">:message</span>') !!}
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary btn-block">
-                                    Insertar
+                                    <i class="icon-add_circle"></i> Insertar
                                 </button>
                             </div>
                         </div>
