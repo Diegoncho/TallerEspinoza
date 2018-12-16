@@ -9,7 +9,8 @@ class Transportes extends Model
     public $timestaps = false;
     
     protected $fillable = [
-        'id', 'empleado_id', 'destino', 'fecha_inicio', 'fecha_fin', 'vehiculo_id',
-        'carga', 'servicio_id'
+        'id', 'fecha_inicio', 'fecha_fin', 'destino', 'empleado_id', 'vehiculo_id',
+        'carga'
     ];
+
 }
