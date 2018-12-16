@@ -28,7 +28,8 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 /*---------------------------------------*/
 /* Menu de Aplicacion */
 Route::get('menu', 'MenuController@index')->name('menu');
-
+Route::get('submenu', 'MenuController@index2')->name('submenu');
+Route::get('submenuAdd', 'MenuController@index3')->name('submenuAdd');
 /*---------------------------------------*/
 
 //CRUD DE EMPLEADOS//
