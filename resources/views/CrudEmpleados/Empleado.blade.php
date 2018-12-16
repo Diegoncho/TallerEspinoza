@@ -32,6 +32,7 @@
                 <th>Apellidos</th>
                 <th>Teléfono</th>
                 <th>Correo Electrónico</th>
+                <th>Foto</th>
                 <th>Acción</th>
             </thead>
 
@@ -43,6 +44,18 @@
                     <td>{{ $row->apellidos }}</td>
                     <td>{{ $row->telefono }}</td>
                     <td>{{ $row->email }}</td>
+                    <td>
+                    <a href="img/{{ $row->img }}" data-lightbox="icon" data-title="photo-empleado">
+                        <div style="background:url('../img/{{ $row->img }}');
+                                    background-size:cover;
+                                    background-position:center;
+                                    width:37px;
+                                    height:37px;
+                                    border-radius:20px;
+                                    margin:0px 5px 0px 5px;">
+                        </div>
+                    </a>
+                    </td>
                     <td>
                         <a href="" class="btn btn-info"><span class="icon-visibility"></span></a>
                         <a href="{{ route('empleadoEdit', $row->id) }}" class="btn btn-warning"><span class="icon-mode_edit"></span></a>
