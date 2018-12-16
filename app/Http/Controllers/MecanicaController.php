@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-use App\Vehiculos;
-use App\Empleados;
 use App\Mecanicas;
+use App\Empleados;
+use App\VistaMecanicas;
 
 class MecanicaController extends Controller
 {
@@ -18,29 +18,36 @@ class MecanicaController extends Controller
 
     public function index(Request $request){
 
-        $Mecanicas = Mecanicas::name($request->get('name'))->orderby('id','ASC')->paginate(7);
+        $VistaMecanicas = VistaMecanicas::name($request->get('name'))->orderby('id','ASC')->paginate(7);
 
-        return view('CrudMecanicas.mecanica' , compact('Mecanicas'));
+        return view('CrudMecanicas.mecanica' , compact('VistaMecanicas'));
     }
 
     public function create(){
         
         $Empleados = Empleados::all();
-        $Vehiculos = Vehiculos::all();
 
-        return view('CrudMecanicas.mecanicaAdd', compact('Empleados','Vehiculos'));
+        return view('CrudMecanicas.mecanicaAdd', compact('Empleados'));
+    }
+
+    public function edit($id){
+
+        $Mecanicas = Mecanicas::findOrFail($id);
+        $VistaMecanicas = VistaMecanicas::findOrFail($id);
+        $Empleados = Empleados::all();
+
+        return view('CrudMecanicas.mecanicaEdit', compact('Mecanicas','VistaMecanicas','Empleados'));
     }
 
     public function post(Request $request){
 
         $validator = Validator::make($request->all(),[
-            'vehiculo_id' => 'required',
-            'empleado_id' => 'required',
             'fecha_recibido' => 'required|date',
-            'diagnostico' => 'required|max:50',
-            'cambios_repuestos' => 'required|max:20',
             'fecha_entrega' => 'date',
-            'total_repuestos' => 'required',
+            'diagnostico' => 'required|max:100',
+            'cambios_repuestos' => 'required',
+            'empleado_id' => 'required',
+            'total_repuesto' => 'required',
             'total_mano_obra' => 'required',
         ]);
 
@@ -52,17 +59,60 @@ class MecanicaController extends Controller
 
             $Mecanicas = new Mecanicas;
 
-            $Mecanicas->vehiculo_id = $request->vehiculo_id;
-            $Mecanicas->empleado_id = $request->empleado_id;
             $Mecanicas->fecha_recibido = $request->fecha_recibido;
-            $Mecanicas->diagnostico = $request->diagnostico;
-            $Mecanicas->cambios_repuestos = $request->cambios_repuesto;
             $Mecanicas->fecha_entrega = $request->fecha_entrega;
-            $Mecanicas->total_repuestos = $request->total_repuestos;
-            $Mecanicas->color = $request->total_mano_obra;
+            $Mecanicas->diagnostico = $request->diagnostico;
+            $Mecanicas->cambios_repuestos = $request->cambios_repuestos;
+            $Mecanicas->empleado_id = $request->empleado_id;
+            $Mecanicas->total_repuesto = $request->total_repuesto;
+            $Mecanicas->total_mano_obra = $request->total_mano_obra;
 
             $Mecanicas->save();
 
             return redirect('/mecanica');
+    }
+
+    public function put(Request $request, $id){
+
+        $validator = Validator::make($request->all(),[
+            'fecha_recibido' => 'required|date',
+            'fecha_entrega' => 'date',
+            'diagnostico' => 'required|max:100',
+            'cambios_repuestos' => 'required',
+            'empleado_id' => 'required',
+            'total_repuesto' => 'required',
+            'total_mano_obra' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect("/mecanicaEdit/$id")
+            ->withInput()
+            ->withErrors($validator);
+        }
+
+            $Mecanicas = Mecanicas::findOrFail($id);
+
+            $Mecanicas->fecha_recibido = $request->fecha_recibido;
+            $Mecanicas->fecha_entrega = $request->fecha_entrega;
+            $Mecanicas->diagnostico = $request->diagnostico;
+            $Mecanicas->cambios_repuestos = $request->cambios_repuestos;
+            $Mecanicas->empleado_id = $request->empleado_id;
+            $Mecanicas->total_repuesto = $request->total_repuesto;
+            $Mecanicas->total_mano_obra = $request->total_mano_obra;
+
+            $Mecanicas->save();
+
+            return redirect('/mecanica');
+    }
+
+    public function delete($id){
+        
+        $Mecanicas = Mecanicas::findOrFail($id);
+
+        $Mecanicas->delete();
+
+        \Session::flash('message', $Mecanicas->diagnostico.' Fue eliminado.');
+
+        return redirect('/mecanica');
     }
 }
