@@ -48,7 +48,7 @@ class EmpleadoController extends Controller
             'telefono' => 'required|max:10',
             'estado_civil' => 'required|max:255',
             'fecha_nac' => 'required|date',
-            'edad' => 'required|max:5',
+            'edad' => 'required|digits:2',
             'sexo' => 'required',
             'departamento_id' => 'required',
             'dui' => 'required|max:20',
