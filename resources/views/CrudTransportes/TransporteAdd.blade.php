@@ -10,35 +10,12 @@
                 <div class="panel-heading">Insertar Transporte</div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" action="{{ route('transporteAdd') }}" method="POST" enctype="multipart/form-data">
+                        <form class="form-horizontal" action="{{ route('transporteAdd') }}" method="POST">
                         {{ csrf_field() }}
-        
-                        <div class="form-group {{ $errors->has('empleado_id') ? 'has-error' : ''}}">
-                            <div class="posting-read">Motorista Asignado <i class="icon-folder_shared"></i></div>
-                            <label for="id_empleado" class="col-md-4 control-label">Empleado</label>
-
-                            <div class="col-md-6">
-                                <select name="empleado_id" id="empleado_id" class="form-control">       
-                                    <option Selected disabled>Seleccione el Empleado</option>
-                                    
-                                @foreach($Empleados as $row)
-                                    <option value="{{ $row->id }}">{{ $row->nombre }}</option>
-                                @endforeach
-                                </select>
-                                {!! $errors->first('empleado_id','<span class="help-block">:message</span>') !!}
-                            </div>
-                        </div>
-                       
-                        <div class="form-group {{ $errors->has('destino') ? 'has-error' : ''}}">
-                            <label for="destino" class="col-md-4 control-label">Destino</label>
-
-                            <div class="col-md-6">
-                                <input id="destino" type="text" class="form-control" name="destino" value="{{ old('destino') }}"> 
-                                {!! $errors->first('destino','<span class="help-block">:message</span>') !!}
-                            </div>
-                        </div>
 
                         <div class="form-group {{ $errors->has('fecha_inicio') ? 'has-error' : ''}}">
+                            <div class="posting-read">Información del Transporte <i class="icon-folder_shared"></i></div>
+
                             <label for="fecha_inicio" class="col-md-4 control-label">Fecha Inicio</label>
 
                             <div class="col-md-6">
@@ -55,16 +32,43 @@
                                 {!! $errors->first('fecha_fin','<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
+        
+                        <div class="form-group {{ $errors->has('destino') ? 'has-error' : ''}}">
+                            <label for="destino" class="col-md-4 control-label">Destino</label>
+
+                            <div class="col-md-6">
+                                <input id="destino" type="text" class="form-control" name="destino" value="{{ old('destino') }}"> 
+                                {!! $errors->first('destino','<span class="help-block">:message</span>') !!}
+                            </div>
+                        </div>
+
+                        <div class="form-group {{ $errors->has('empleado_id') ? 'has-error' : ''}}">
+                            <div class="posting-read">Motorista Asignado <i class="icon-folder_shared"></i></div>
+
+                            <label for="id_empleado" class="col-md-4 control-label">Empleado</label>
+
+                            <div class="col-md-6">
+                                <select name="empleado_id" id="empleado_id" class="form-control">       
+                                    <option Selected disabled>Seleccione el Empleado</option>
+                                    
+                                @foreach($Empleados as $row)
+                                    <option value="{{ $row->id }}">{{ $row->nombres }} {{ $row->apellidos }}</option>
+                                @endforeach
+                                </select>
+                                {!! $errors->first('empleado_id','<span class="help-block">:message</span>') !!}
+                            </div>
+                        </div>
 
                         <div class="form-group {{ $errors->has('vehiculo_id') ? 'has-error' : ''}}">
                             <div class="posting-read">Vehiculo Asignado <i class="icon-folder_shared"></i></div>
+                            
                             <label for="id_vehiculo" class="col-md-4 control-label">Vehiculo</label>
 
                             <div class="col-md-6">
                                 <select name="vehiculo_id" id="vehiculo_id" class="form-control">       
                                     <option Selected disabled>Seleccione el Vehiculo</option>
                                     
-                                @foreach($Vehiculos as $row)
+                                @foreach($VistaVehiculos as $row)
                                     <option value="{{ $row->id }}">{{ $row->modelo }}</option>
                                 @endforeach
                                 </select>
@@ -81,19 +85,10 @@
                             </div>
                         </div>
 
-                         <div class="form-group {{ $errors->has('tipo_ser') ? 'has-error' : ''}}">
-                            <label for="color" class="col-md-4 control-label">Tipo de Servicio</label>
-
-                            <div class="col-md-6">
-                                <input id="tipo_ser" type="text" class="form-control" name="tipo_ser" value="{{ old('tipo_ser') }}">                              
-                                {!! $errors->first('tipo_ser','<span class="help-block">:message</span>') !!}
-                            </div>
-                        </div>
-
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary btn-block">
-                                    Insertar
+                                    <i class="icon-add_circle"></i> Insertar
                                 </button>
                             </div>
                         </div>
