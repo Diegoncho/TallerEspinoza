@@ -396,6 +396,7 @@ class ComposerStaticInit713de9055dd86bace2858aa86b9ef261
         'App\\Ventas' => __DIR__ . '/../..' . '/app/Ventas.php',
         'App\\VistaEmpleados' => __DIR__ . '/../..' . '/app/VistaEmpleados.php',
         'App\\VistaProductos' => __DIR__ . '/../..' . '/app/VistaProductos.php',
+        'App\\VistaTransportes' => __DIR__ . '/../..' . '/app/VistaTransportes.php',
         'App\\VistaVehiculos' => __DIR__ . '/../..' . '/app/VistaVehiculos.php',
         'App\\Vmarcas' => __DIR__ . '/../..' . '/app/Vmarcas.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',

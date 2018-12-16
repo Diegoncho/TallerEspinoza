@@ -55,6 +55,7 @@ return array(
     'App\\Ventas' => $baseDir . '/app/Ventas.php',
     'App\\VistaEmpleados' => $baseDir . '/app/VistaEmpleados.php',
     'App\\VistaProductos' => $baseDir . '/app/VistaProductos.php',
+    'App\\VistaTransportes' => $baseDir . '/app/VistaTransportes.php',
     'App\\VistaVehiculos' => $baseDir . '/app/VistaVehiculos.php',
     'App\\Vmarcas' => $baseDir . '/app/Vmarcas.php',
     'BeyondCode\\DumpServer\\DumpServerCommand' => $vendorDir . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
