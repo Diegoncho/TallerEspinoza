@@ -14,7 +14,7 @@
                         {{ csrf_field() }}
         
                         <div class="form-group {{ $errors->has('nombre_proveedor') ? 'has-error' : ''}}">
-                            <div class="posting-read">Información del Proveedor <i class="icon-contacts"></i></div>
+                            <div class="posting-read">Información del Proveedor <i class="icon-info"></i></div>
 
                             <label for="nombre_proveedor" class="col-md-4 control-label">Nombre Proveedor</label>
 

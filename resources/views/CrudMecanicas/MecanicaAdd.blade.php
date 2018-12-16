@@ -14,7 +14,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group {{ $errors->has('fecha_recibido') ? 'has-error' : ''}}">
-                            <div class="posting-read">Información de Mecanica <i class="icon-folder_shared"></i></div>
+                            <div class="posting-read">Información de Mecanica <i class="icon-info"></i></div>
 
                             <label for="fecha_recibido" class="col-md-4 control-label">Fecha Recibido</label>
 
@@ -52,7 +52,7 @@
                         </div>
 
                         <div class="form-group {{ $errors->has('empleado_id') ? 'has-error' : ''}}">
-                            <div class="posting-read">Empleado Asignado <i class="icon-folder_shared"></i></div>
+                            <div class="posting-read">Empleado Asignado <i class="icon-person"></i></div>
 
                             <label for="id_empleado" class="col-md-4 control-label">Empleado</label>
 

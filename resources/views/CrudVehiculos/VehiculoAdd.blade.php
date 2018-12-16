@@ -14,7 +14,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group {{ $errors->has('marca_id') ? 'has-error' : ''}}">
-                            <div class="posting-read">Información del Vehiculo <i class="icon-contacts"></i></div>
+                            <div class="posting-read">Información del Vehiculo <i class="icon-info"></i></div>
 
                             <label for="idmarca" class="col-md-4 control-label">Marca</label>
 

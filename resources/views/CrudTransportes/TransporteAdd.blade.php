@@ -14,7 +14,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group {{ $errors->has('fecha_inicio') ? 'has-error' : ''}}">
-                            <div class="posting-read">Información del Transporte <i class="icon-folder_shared"></i></div>
+                            <div class="posting-read">Información del Transporte <i class="icon-info"></i></div>
 
                             <label for="fecha_inicio" class="col-md-4 control-label">Fecha Inicio</label>
 
@@ -43,7 +43,7 @@
                         </div>
 
                         <div class="form-group {{ $errors->has('empleado_id') ? 'has-error' : ''}}">
-                            <div class="posting-read">Motorista Asignado <i class="icon-folder_shared"></i></div>
+                            <div class="posting-read">Motorista Asignado <i class="icon-person"></i></div>
 
                             <label for="id_empleado" class="col-md-4 control-label">Empleado</label>
 
@@ -60,7 +60,7 @@
                         </div>
 
                         <div class="form-group {{ $errors->has('vehiculo_id') ? 'has-error' : ''}}">
-                            <div class="posting-read">Vehiculo Asignado <i class="icon-folder_shared"></i></div>
+                            <div class="posting-read">Vehiculo Asignado <i class="icon-local_taxi"></i></div>
                             
                             <label for="id_vehiculo" class="col-md-4 control-label">Vehiculo</label>
 
