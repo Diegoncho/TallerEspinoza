@@ -47,7 +47,7 @@ class TransporteController extends Controller
 
         $validator = Validator::make($request->all(),[
             'fecha_inicio' => 'required|date',
-            'fecha_fin' => 'date',
+            'fecha_fin' => 'required|max:255',
             'destino' => 'required|max:255',
             'empleado_id' => 'required',
             'vehiculo_id' => 'required',
@@ -78,7 +78,7 @@ class TransporteController extends Controller
 
         $validator = Validator::make($request->all(),[
             'fecha_inicio' => 'required|date',
-            'fecha_fin' => 'date',
+            'fecha_fin' => 'required|max:255',
             'destino' => 'required|max:255',
             'empleado_id' => 'required',
             'vehiculo_id' => 'required',

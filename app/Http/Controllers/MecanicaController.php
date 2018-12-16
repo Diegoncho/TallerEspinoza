@@ -75,8 +75,8 @@ class MecanicaController extends Controller
     public function put(Request $request, $id){
 
         $validator = Validator::make($request->all(),[
-            'fecha_recibido' => 'required|date',
-            'fecha_entrega' => 'date',
+            'fecha_recibido' => 'required|max:255',
+            'fecha_entrega' => 'required|max:255',
             'diagnostico' => 'required|max:100',
             'cambios_repuestos' => 'required',
             'empleado_id' => 'required',
