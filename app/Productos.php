@@ -13,12 +13,4 @@ class Productos extends Model
         'precio_mayoreo', 'precio_regular'
     ];
 
-    public function scopeName($query, $name)
-    {
-        if (trim($name) != ""){
-
-            $query->where(\DB::raw("CONCAT(nombre)"), "LIKE", "%$name%");
-        }
-
-    }
 }
