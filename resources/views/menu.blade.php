@@ -8,13 +8,13 @@
 
     <div class="menu-icons">
 
-    <a href="{{ route('empleado') }}">
+    <a href="{{ route('submenu') }}">
         <div class="panel-module" id="panel-module-1">
             <div class="module-icon">
                 <i class="icon-search"></i>
             </div>
 
-            <div class="module-title" id="module-title-1">Buscar un Empleado.</div>
+            <div class="module-title" id="module-title-1">Buscar un Registro.</div>
 
             <div class="module-footer">
                 Personalizado a tus necesidades.
@@ -22,13 +22,13 @@
         </div>
     </a>
 
-    <a href="{{ route('empleadoAdd') }}">
+    <a href="{{ route('submenuAdd') }}">
         <div class="panel-module" id="panel-module-2">
             <div class="module-icon">
                 <i class="icon-person_add"></i>
             </div>
 
-            <div class="module-title" id="module-title-2">Agregar un Empleado.</div>
+            <div class="module-title" id="module-title-2">Agregar un Registro.</div>
 
             <div class="module-footer">
                 Personalizado a tus necesidades.
