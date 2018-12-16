@@ -156,6 +156,7 @@ Route::put('/productoEdit/{id}', 'ProductoController@put');
 
 /* Eliminar Producto */
 Route::delete('/producto/{id}', 'ProductoController@delete');
+/*---------------------------------------*/
 
 
 //CRUD DE VEHICULOS//
@@ -187,6 +188,7 @@ Route::put('/vehiculoEdit/{id}', 'VehiculoController@put');
 
 /* Eliminar Vehiculo */
 Route::delete('/vehiculo/{id}', 'VehiculoController@delete');
+/*---------------------------------------*/
 
 
 //CRUD DE TRANSPORTES//
@@ -218,3 +220,36 @@ Route::put('/transporteEdit/{id}', 'TransporteController@put');
 
 /* Eliminar Transporte */
 Route::delete('/transporte/{id}', 'TransporteController@delete');
+/*---------------------------------------*/
+
+
+//CRUD DE MECANICAS//
+/*---------------------------------------*/
+/* Listar Mecanicas */
+Route::get('/mecanica', function(){
+    return view('mecanica');
+});
+Route::get('mecanica', 'MecanicaController@index')->name('mecanica');
+
+/* Formulario de Registrar Mecanica */
+Route::get('/mecanicaAdd', function(){
+    return view('mecanicaAdd');
+});
+Route::get('mecanicaAdd', 'MecanicaController@create')->name('mecanicaAdd');
+
+/* Formulario de Editar Mecanica */
+Route::get('/mecanicaEdit/{id}', function($id){
+    return view('mecanicaEdit');
+});
+Route::get('/mecanicaEdit/{id}', 'MecanicaController@edit')->name('mecanicaEdit');
+
+
+/* Agregar Mecanica */
+Route::post('/mecanicaAdd', 'MecanicaController@post');
+
+/* Editar Mecanica */
+Route::put('/mecanicaEdit/{id}', 'MecanicaController@put');
+
+/* Eliminar Mecanica */
+Route::delete('/mecanica/{id}', 'MecanicaController@delete');
+/*---------------------------------------*/
