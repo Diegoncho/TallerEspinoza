@@ -15,4 +15,14 @@ class MenuController extends Controller
     {
         return view('menu');
     }
+
+    public function index2()
+    {
+        return view('submenu');
+    }
+
+    public function index3()
+    {
+        return view("submenuAdd");
+    }
 }
