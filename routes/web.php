@@ -187,3 +187,34 @@ Route::put('/vehiculoEdit/{id}', 'VehiculoController@put');
 
 /* Eliminar Vehiculo */
 Route::delete('/vehiculo/{id}', 'VehiculoController@delete');
+
+
+//CRUD DE TRANSPORTES//
+/*---------------------------------------*/
+/* Listar Transportes */
+Route::get('/transporte', function(){
+    return view('transporte');
+});
+Route::get('transporte', 'TransporteController@index')->name('transporte');
+
+/* Formulario de Registrar Transporte */
+Route::get('/transporteAdd', function(){
+    return view('transporteAdd');
+});
+Route::get('transporteAdd', 'TransporteController@create')->name('transporteAdd');
+
+/* Formulario de Editar Transporte */
+Route::get('/transporteEdit/{id}', function($id){
+    return view('transporteEdit');
+});
+Route::get('/transporteEdit/{id}', 'TransporteController@edit')->name('transporteEdit');
+
+
+/* Agregar Transporte */
+Route::post('/transporteAdd', 'TransporteController@post');
+
+/* Editar Transporte */
+Route::put('/transporteEdit/{id}', 'TransporteController@put');
+
+/* Eliminar Transporte */
+Route::delete('/transporte/{id}', 'TransporteController@delete');
