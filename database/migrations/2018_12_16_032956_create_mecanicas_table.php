@@ -15,8 +15,8 @@ class CreateMecanicasTable extends Migration
     {
         Schema::create('mecanicas', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('fecha_recibido');
-            $table->date('fecha_entrega');
+            $table->string('fecha_recibido',255);
+            $table->string('fecha_entrega',255);
             $table->text('diagnostico');
             $table->text('cambios_repuestos');
             $table->integer('empleado_id')->unsigned();

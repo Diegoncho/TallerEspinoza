@@ -15,8 +15,8 @@ class CreateTransportesTable extends Migration
     {
         Schema::create('transportes', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('fecha_inicio');
-            $table->date('fecha_fin');
+            $table->string('fecha_inicio',255);
+            $table->string('fecha_fin',255);
             $table->string('destino',255);
             $table->integer('empleado_id')->unsigned();
             $table->integer('vehiculo_id')->unsigned();

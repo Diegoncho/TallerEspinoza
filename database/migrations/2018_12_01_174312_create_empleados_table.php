@@ -20,7 +20,7 @@ class CreateEmpleadosTable extends Migration
             $table->text('direccion');
             $table->string('telefono',10);
             $table->string('edad',5);
-            $table->date('fecha_nac');
+            $table->string('fecha_nac',255);
             $table->string('estado_civil',255);
             $table->string('sexo',255);
             $table->integer('departamento_id')->unsigned();
