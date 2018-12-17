@@ -260,3 +260,99 @@ Route::put('/mecanicaEdit/{id}', 'MecanicaController@put');
 /* Eliminar Mecanica */
 Route::delete('/mecanica/{id}', 'MecanicaController@delete');
 /*---------------------------------------*/
+
+
+//CRUD DE MODELOS//
+/*---------------------------------------*/
+/* Listar Modelos */
+Route::get('/modelo', function(){
+    return view('modelo');
+});
+Route::get('modelo', 'ModeloController@index')->name('modelo');
+
+/* Formulario de Registrar Modelo */
+Route::get('/modeloAdd', function(){
+    return view('modeloAdd');
+});
+Route::get('modeloAdd', 'ModeloController@create')->name('modeloAdd');
+
+/* Formulario de Editar Modelo */
+Route::get('/modeloEdit/{id}', function($id){
+    return view('modeloEdit');
+});
+Route::get('/modeloEdit/{id}', 'ModeloController@edit')->name('modeloEdit');
+
+
+/* Agregar Modelo */
+Route::post('/modeloAdd', 'ModeloController@post');
+
+/* Editar Modelo */
+Route::put('/modeloEdit/{id}', 'ModeloController@put');
+
+/* Eliminar Modelo */
+Route::delete('/modelo/{id}', 'ModeloController@delete');
+/*---------------------------------------*/
+
+
+//CRUD DE PMARCAS//
+/*---------------------------------------*/
+/* Listar Pmarcas */
+Route::get('/pmarca', function(){
+    return view('pmarca');
+});
+Route::get('pmarca', 'PmarcaController@index')->name('pmarca');
+
+/* Formulario de Registrar Pmarca */
+Route::get('/pmarcaAdd', function(){
+    return view('pmarcaAdd');
+});
+Route::get('pmarcaAdd', 'PmarcaController@create')->name('pmarcaAdd');
+
+/* Formulario de Editar Pmarca */
+Route::get('/pmarcaEdit/{id}', function($id){
+    return view('pmarcaEdit');
+});
+Route::get('/pmarcaEdit/{id}', 'PmarcaController@edit')->name('pmarcaEdit');
+
+
+/* Agregar Pmarca */
+Route::post('/pmarcaAdd', 'PmarcaController@post');
+
+/* Editar Pmarca */
+Route::put('/pmarcaEdit/{id}', 'PmarcaController@put');
+
+/* Eliminar Pmarca */
+Route::delete('/pmarca/{id}', 'PmarcaController@delete');
+/*---------------------------------------*/
+
+
+//CRUD DE VMARCAS//
+/*---------------------------------------*/
+/* Listar Vmarcas */
+Route::get('/vmarca', function(){
+    return view('vmarca');
+});
+Route::get('vmarca', 'VmarcaController@index')->name('vmarca');
+
+/* Formulario de Registrar Vmarca */
+Route::get('/vmarcaAdd', function(){
+    return view('vmarcaAdd');
+});
+Route::get('vmarcaAdd', 'VmarcaController@create')->name('vmarcaAdd');
+
+/* Formulario de Editar Vmarca */
+Route::get('/vmarcaEdit/{id}', function($id){
+    return view('vmarcaEdit');
+});
+Route::get('/vmarcaEdit/{id}', 'VmarcaController@edit')->name('vmarcaEdit');
+
+
+/* Agregar Vmarca */
+Route::post('/vmarcaAdd', 'VmarcaController@post');
+
+/* Editar Vmarca */
+Route::put('/vmarcaEdit/{id}', 'VmarcaController@put');
+
+/* Eliminar Vmarca */
+Route::delete('/vmarca/{id}', 'VmarcaController@delete');
+/*---------------------------------------*/

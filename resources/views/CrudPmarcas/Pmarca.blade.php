@@ -27,9 +27,9 @@
 
             <table class="table table-striped">
             <thead>
-                <th>#</th>
-                <th>Marca</th>
-                <th>Acción</th>
+                <th class="col-md-1">#</th>
+                <th class="col-md-5">Marca</th>
+                <th class="col-md-1">Acción</th>
             </thead>
 
             <tbody>

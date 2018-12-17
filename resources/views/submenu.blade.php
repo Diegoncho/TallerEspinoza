@@ -105,6 +105,48 @@
             </div>
         </div>
     </a>
+
+    <a href="{{ route('modelo') }}">
+        <div class="panel-module" id="panel-module-8">
+            <div class="module-icon">
+                <i class="icon-subway"></i>
+            </div>
+
+            <div class="module-title" id="module-title-8">Buscar un Modelo.</div>
+            
+            <div class="module-footer">
+                Personalizado a tus necesidades.
+            </div>
+        </div>
+    </a>
+
+    <a href="{{ route('pmarca') }}">
+        <div class="panel-module" id="panel-module-9">
+            <div class="module-icon">
+                <i class="icon-local_offer"></i>
+            </div>
+
+            <div class="module-title" id="module-title-9">Buscar Marca Producto.</div>
+            
+            <div class="module-footer">
+                Personalizado a tus necesidades.
+            </div>
+        </div>
+    </a>
+
+    <a href="{{ route('vmarca') }}">
+        <div class="panel-module" id="panel-module-10">
+            <div class="module-icon">
+                <i class="icon-loyalty"></i>
+            </div>
+
+            <div class="module-title" id="module-title-10">Buscar Marca Vehiculo.</div>
+            
+            <div class="module-footer">
+                Personalizado a tus necesidades.
+            </div>
+        </div>
+    </a>
 </div>
 
 <script type="text/javascript">
@@ -168,6 +210,33 @@
           }, function() {
             // vuelve a dejar el <div> como estaba al hacer el "mouseout"
             $('#module-title-7').css('color', '');
+          });
+        });
+
+        $(function() {
+          $('#panel-module-8').hover(function() {
+            $('#module-title-8').css('color', '#019ACF');
+          }, function() {
+            // vuelve a dejar el <div> como estaba al hacer el "mouseout"
+            $('#module-title-8').css('color', '');
+          });
+        });
+
+        $(function() {
+          $('#panel-module-9').hover(function() {
+            $('#module-title-9').css('color', '#019ACF');
+          }, function() {
+            // vuelve a dejar el <div> como estaba al hacer el "mouseout"
+            $('#module-title-9').css('color', '');
+          });
+        });
+
+        $(function() {
+          $('#panel-module-10').hover(function() {
+            $('#module-title-10').css('color', '#019ACF');
+          }, function() {
+            // vuelve a dejar el <div> como estaba al hacer el "mouseout"
+            $('#module-title-10').css('color', '');
           });
         });
 </script>

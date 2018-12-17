@@ -11,4 +11,13 @@ class Pmarcas extends Model
     protected $fillable = [
         'id', 'marca'
     ];
+
+    public function scopeName($query, $name)
+    {
+        if (trim($name) != ""){
+
+            $query->where(\DB::raw("CONCAT(marca)"), "LIKE", "%$name%");
+        }
+
+    }
 }
