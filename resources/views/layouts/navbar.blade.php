@@ -27,6 +27,10 @@
         
         <div class="options flex">
             <a href="{{ route('menu') }}"><i class="icon-build"></i> Menu</a>
+            
+            <a href="{{ route('submenu') }}"><i class="icon-search"></i> Buscar</a>
+
+            <a href="{{ route('submenuAdd') }}"><i class="icon-control_point"></i> Agregar</a>
 
             <form action="{{ route('logout') }}" method="POST" id="form_nav">
                 {{ csrf_field() }}
