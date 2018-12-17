@@ -10,7 +10,7 @@
                 <div class="panel-heading">Insertar Transporte</div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" action="{{ route('transporteAdd') }}" method="POST">
+                        <form class="form-horizontal" action="{{ route('transporteAdd') }}" method="POST" autocomplete="off">
                         {{ csrf_field() }}
 
                         <div class="form-group {{ $errors->has('fecha_inicio') ? 'has-error' : ''}}">
@@ -19,7 +19,7 @@
                             <label for="fecha_inicio" class="col-md-4 control-label">Fecha Inicio</label>
 
                             <div class="col-md-6">
-                                <input id="fecha_inicio" type="date" class="form-control" name="fecha_inicio" value="{{ old('fecha_inicio') }}">
+                                <input id="fecha_inicio" readonly type="text" class="form-control" name="fecha_inicio" value="{{ old('fecha_inicio') }}">
                                 {!! $errors->first('fecha_inicio','<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
@@ -28,7 +28,7 @@
                             <label for="fecha_fin" class="col-md-4 control-label">Fecha Fin</label>
 
                             <div class="col-md-6">
-                                <input id="fecha_fin" type="date" class="form-control" name="fecha_fin" value="{{ old('fecha_fin') }}">       
+                                <input id="fecha_fin" readonly type="text" class="form-control" name="fecha_fin" value="{{ old('fecha_fin') }}">       
                                 {!! $errors->first('fecha_fin','<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
@@ -98,5 +98,39 @@
                 </div>
             </div>
         </div>
+
+<script type="text/javascript">
+    $( function() {
+        var dateFormat = "mm/dd/yy",
+        from = $( "#fecha_inicio" )
+            .datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            numberOfMonths: 3
+            })
+            .on( "change", function() {
+            to.datepicker( "option", "minDate", getDate( this ) );
+            }),
+        to = $( "#fecha_fin" ).datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            numberOfMonths: 3
+        })
+        .on( "change", function() {
+            from.datepicker( "option", "maxDate", getDate( this ) );
+        });
+
+        function getDate( element ) {
+        var date;
+        try {
+            date = $.datepicker.parseDate( dateFormat, element.value );
+        } catch( error ) {
+            date = null;
+        }
+
+        return date;
+        }
+    });
+</script>
 
 @endsection

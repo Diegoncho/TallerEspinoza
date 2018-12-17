@@ -64,7 +64,7 @@
                             <label for="fecha_nac" class="col-md-4 control-label">Fecha Nacimiento</label>
 
                             <div class="col-md-6">
-                                <input id="fecha_nac" type="date" class="form-control" name="fecha_nac" value="{{ old('fecha_nac') }}">                      
+                                <input id="fecha_nac" readonly type="text" class="form-control" name="fecha_nac" value="{{ old('fecha_nac') }}">                      
                                 {!! $errors->first('fecha_nac','<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
@@ -162,5 +162,16 @@
                 </div>
             </div>
         </div>
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        $("#fecha_nac").datepicker({
+        changeYear:true,
+        yearRange: "1950:2018"
+        });
+    });
+
+</script>
 
 @endsection

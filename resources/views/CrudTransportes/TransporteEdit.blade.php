@@ -18,7 +18,7 @@
                             <label for="fecha_inicio" class="col-md-3">Fecha Inicio</label>
 
                             <div class="col-md-12">
-                                <input id="fecha_inicio" type="date" class="form-control" name="fecha_inicio" value="{{ $Transportes->fecha_inicio }}">
+                                <input id="fecha_inicio" readonly type="text" class="form-control" name="fecha_inicio" value="{{ $Transportes->fecha_inicio }}">
                                 {!! $errors->first('fecha_inicio','<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
@@ -27,7 +27,7 @@
                             <label for="fecha_fin" class="col-md-3">Fecha Fin</label>
 
                             <div class="col-md-12">
-                                <input id="fecha_fin" type="date" class="form-control" name="fecha_fin" value="{{ $Transportes->fecha_fin }}">       
+                                <input id="fecha_fin" readonly type="text" class="form-control" name="fecha_fin" value="{{ $Transportes->fecha_fin }}">       
                                 {!! $errors->first('fecha_fin','<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
@@ -103,5 +103,39 @@
 
         </div>
     </div>
+
+<script type="text/javascript">
+    $( function() {
+        var dateFormat = "mm/dd/yy",
+        from = $( "#fecha_inicio" )
+            .datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            numberOfMonths: 3
+            })
+            .on( "change", function() {
+            to.datepicker( "option", "minDate", getDate( this ) );
+            }),
+        to = $( "#fecha_fin" ).datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            numberOfMonths: 3
+        })
+        .on( "change", function() {
+            from.datepicker( "option", "maxDate", getDate( this ) );
+        });
+
+        function getDate( element ) {
+        var date;
+        try {
+            date = $.datepicker.parseDate( dateFormat, element.value );
+        } catch( error ) {
+            date = null;
+        }
+
+        return date;
+        }
+    });
+</script>
 
 @endsection

@@ -10,7 +10,7 @@
                 <div class="panel-heading">Insertar Mecanica</div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" action="{{ route('mecanicaAdd') }}" method="POST">
+                        <form class="form-horizontal" action="{{ route('mecanicaAdd') }}" method="POST" autocomplete="off">
                         {{ csrf_field() }}
 
                         <div class="form-group {{ $errors->has('fecha_recibido') ? 'has-error' : ''}}">
@@ -19,7 +19,7 @@
                             <label for="fecha_recibido" class="col-md-4 control-label">Fecha Recibido</label>
 
                             <div class="col-md-6">
-                                <input id="fecha_recibido" type="date" class="form-control" name="fecha_recibido" value="{{ old('fecha_recibido') }}">
+                                <input id="fecha_recibido" readonly type="text" class="form-control" name="fecha_recibido" value="{{ old('fecha_recibido') }}">
                                 {!! $errors->first('fecha_recibido','<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
@@ -28,7 +28,7 @@
                             <label for="fecha_entrega" class="col-md-4 control-label">Fecha Entrega</label>
 
                             <div class="col-md-6">
-                                <input id="fecha_entrega" type="date" class="form-control" name="fecha_entrega" value="{{ old('fecha_entrega') }}">       
+                                <input id="fecha_entrega" readonly type="text" class="form-control" name="fecha_entrega" value="{{ old('fecha_entrega') }}">       
                                 {!! $errors->first('fecha_entrega','<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
@@ -99,5 +99,39 @@
                 </div>
             </div>
         </div>
+
+<script type="text/javascript">
+    $( function() {
+        var dateFormat = "mm/dd/yy",
+        from = $( "#fecha_recibido" )
+            .datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            numberOfMonths: 3
+            })
+            .on( "change", function() {
+            to.datepicker( "option", "minDate", getDate( this ) );
+            }),
+        to = $( "#fecha_entrega" ).datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            numberOfMonths: 3
+        })
+        .on( "change", function() {
+            from.datepicker( "option", "maxDate", getDate( this ) );
+        });
+
+        function getDate( element ) {
+        var date;
+        try {
+            date = $.datepicker.parseDate( dateFormat, element.value );
+        } catch( error ) {
+            date = null;
+        }
+
+        return date;
+        }
+    });
+</script>
 
 @endsection
