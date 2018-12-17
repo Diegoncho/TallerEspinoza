@@ -105,6 +105,7 @@
             </div>
         </div>
     </a>
+</div>
 
 <script type="text/javascript">
         $(function() {
