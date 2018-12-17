@@ -46,6 +46,12 @@ Route::get('/empleadoAdd', function(){
 });
 Route::get('empleadoAdd', 'EmpleadoController@create')->name('empleadoAdd');
 
+/* Vista de Reporte Empleado */
+Route::get('/empleadoView/{id}', function($id){
+    return view('empleadoView');
+});
+Route::get('/empleadoView/{id}', 'EmpleadoController@view')->name('empleadoView');
+
 /* Formulario de Editar Empleado */
 Route::get('/empleadoEdit/{id}', function($id){
     return view('empleadoEdit');

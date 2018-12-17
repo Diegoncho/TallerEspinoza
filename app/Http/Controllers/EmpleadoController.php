@@ -23,6 +23,15 @@ class EmpleadoController extends Controller
         return view('CrudEmpleados.empleado' , compact('Empleados'));
     }
 
+    public function view($id){
+
+        $Empleados = Empleados::findOrFail($id);
+        $VistaEmpleados = VistaEmpleados::findOrFail($id);
+        $Departamentos = Departamentos::all();
+
+        return view('CrudEmpleados.empleadoView', compact('Empleados','VistaEmpleados','Departamentos'));
+    }
+
     public function create(){
         
         $Departamentos = Departamentos::all();
