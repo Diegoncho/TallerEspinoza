@@ -4,7 +4,7 @@
 
 @include('layouts.navbar')
 
-<link rel="stylesheet" href="{{ asset('css/reporte.css') }}"  media="all">
+<link rel="stylesheet" href="{{ asset('css/reporte.css') }}">
 
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -97,4 +97,10 @@
             <a href="#" class="btn btn-link"><i class="icon-cloud_download"></i> Descargar PDF</a>
         </div>
     </div>
+
+<script type="text/javascript">
+    $('.module-reporte').click(function() {
+        window.print();
+    });
+</script>
 @endsection

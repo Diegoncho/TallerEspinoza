@@ -4,7 +4,7 @@
 
 @include('layouts.navbar')
 
-<link rel="stylesheet" href="{{ asset('css/reporte.css') }}"  media="all">
+<link rel="stylesheet" href="{{ asset('css/reporte.css') }}">
 
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -22,23 +22,23 @@
                 <div class="panel-reporte">
                     <div class="reporte-unity flex">
                         <div class="reporte-post">Nombre :</div>
-                        <div class="reporte-text">{{ $Producto->nombres }} {{ $Empleados->apellidos }}</div>
+                        <div class="reporte-text">{{ $Productos->nombre }}</div>
                     </div>
 
                     <div class="reporte-unity flex">
                         <div class="reporte-post">Marca:</div>
-                        <div class="reporte-text">{{ $VistaProducto->marca }}</div>
+                        <div class="reporte-text">{{ $VistaProductos->marca }}</div>
                     </div>
 
                     <div class="reporte-unity flex">
-                        <div class="reporte-post">Descripcion:</div>
-                        <div class="reporte-text">{{ $Producto->descripcion }}</div>
+                        <div class="reporte-post">Descripción:</div>
+                        <div class="reporte-text">{{ $Productos->descripcion }}</div>
                     </div>
 
                     <div class="group-reporte flex">
                         <div class="reporte-unity flex" style="width:50%">
                             <div class="reporte-post" style="width:47%">Estado:</div>
-                            <div class="reporte-text">{{ $Producto->estado }}</div>
+                            <div class="reporte-text">{{ $Productos->estado }}</div>
                         </div>
 
                         <div class="reporte-unity flex" style="width:50%">
@@ -58,7 +58,7 @@
 
                         <div class="reporte-unity flex" style="width:50%">
                             <div class="reporte-post">Precio Regular:</div>
-                            <div class="reporte-text">{{ $Productos->Precio_regular }}</div>
+                            <div class="reporte-text">{{ $Productos->precio_regular }}</div>
                         </div>
                     </div>
                 </div>
