@@ -5,7 +5,7 @@
 @include('layouts.navbar')
 
     <div class="panel panel-default" style="min-width: 800px">
-        <div class="panel-heading" style="background:#f9f9f9"><b>Listado de marcas de productos</b></div>
+        <div class="panel-heading" style="background:#f9f9f9"><b>Listado de marcas productos</b></div>
         <div class="panel-body">
             @if (Session::has('message'))
                 <div class="alert alert-success">
@@ -38,7 +38,6 @@
                     <td>{{ $row->id }}</td>
                     <td>{{ $row->marca }}</td>
                     <td>
-                        <a href="" class="btn btn-info"><span class="icon-visibility"></span></a>
                         <a href="{{ route('pmarcaEdit', $row->id) }}" class="btn btn-warning"><span class="icon-mode_edit"></span></a>
                         <a href="#" class="btn btn-danger"><span class="icon-highlight_off"></span></a>
                     </td>

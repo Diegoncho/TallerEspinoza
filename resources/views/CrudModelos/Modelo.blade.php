@@ -38,7 +38,6 @@
                     <td>{{ $row->id }}</td>
                     <td>{{ $row->modelo }}</td>
                     <td>
-                        <a href="" class="btn btn-info"><span class="icon-visibility"></span></a>
                         <a href="{{ route('modeloEdit', $row->id) }}" class="btn btn-warning"><span class="icon-mode_edit"></span></a>
                         <a href="#" class="btn btn-danger"><span class="icon-highlight_off"></span></a>
                     </td>
