@@ -24,6 +24,16 @@ class VehiculoController extends Controller
         return view('CrudVehiculos.vehiculo' , compact('VistaVehiculos'));
     }
 
+    public function view($id){
+
+        $Vehiculos = Vehiculos::findOrFail($id);
+        $VistaVehiculos = VistaVehiculos::findOrFail($id);
+        $Vmarcas = Vmarcas::all();
+        $Modelos = Modelos::all();
+        
+        return view('CrudVehiculos.vehiculoView', compact('Vehiculos','VistaVehiculos','Vmarcas','Modelos'));
+    }
+
     public function create(){
         
         $Vmarcas = Vmarcas::all();

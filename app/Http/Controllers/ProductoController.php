@@ -23,6 +23,15 @@ class ProductoController extends Controller
         return view('CrudProductos.producto', compact('VistaProductos'));
     }
 
+    public function view($id){
+
+        $Productos = Productos::findOrFail($id);
+        $VistaProductos = VistaProductos::findOrFail($id);
+        $Pmarcas = Pmarcas::all();
+
+        return view('CrudProductos.productoView', compact('Productos','VistaProductos','Pmarcas'));
+    }
+
     public function create(){
 
         $Pmarcas = Pmarcas::all();

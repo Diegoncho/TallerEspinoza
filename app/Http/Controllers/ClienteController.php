@@ -21,6 +21,13 @@ class ClienteController extends Controller
         return view('CrudClientes.cliente' , compact('Clientes'));
     }
 
+    public function view($id){
+
+        $Clientes = Clientes::findOrFail($id);
+      
+        return view('CrudClientes.clienteView', compact('Clientes'));
+    }
+
     public function create(){
 
         return view('CrudClientes.clienteAdd');
