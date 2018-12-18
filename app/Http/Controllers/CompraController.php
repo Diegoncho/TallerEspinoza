@@ -22,6 +22,13 @@ class CompraController extends Controller
         return view('CrudCompras.compra' , compact('Compras'));
     }
 
+    public function view($id){
+
+        $Proveedores = Proveedores::findOrFail($id);
+    
+        return view('CrudProveedores.proveedorView', compact('Proveedores'));
+    }
+
     public function create(){
         
         $Proveedores = Proveedores::all();

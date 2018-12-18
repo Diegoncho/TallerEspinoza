@@ -25,6 +25,16 @@ class TransporteController extends Controller
         return view('CrudTransportes.transporte' , compact('VistaTransportes'));
     }
 
+    public function view($id){
+
+        $Transportes = Transportes::findOrFail($id);
+        $VistaTransportes = VistaTransportes::findOrFail($id);
+        $Empleados = Empleados::all();
+        $VistaVehiculos = VistaVehiculos::all();
+        
+        return view('CrudTransportes.transporteView', compact('Transportes','VistaTransportes','Empleados','VistaVehiculos'));
+    }
+
     public function create(){
         
         $Empleados = Empleados::all();

@@ -23,6 +23,15 @@ class MecanicaController extends Controller
         return view('CrudMecanicas.mecanica' , compact('VistaMecanicas'));
     }
 
+    public function view($id){
+
+        $Mecanicas = Mecanicas::findOrFail($id);
+        $VistaMecanicas = VistaMecanicas::findOrFail($id);
+        $Empleados = Empleados::all();
+
+        return view('CrudMecanicas.mecanicaView', compact('Mecanicas','VistaMecanicas','Empleados'));
+    }
+
     public function create(){
         
         $Empleados = Empleados::all();
