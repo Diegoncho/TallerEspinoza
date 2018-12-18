@@ -73,7 +73,7 @@
                             <label for="edad" class="col-md-4 control-label">Edad</label>
 
                             <div class="col-md-6">
-                                <input id="edad" type="number" class="form-control" name="edad" value="{{ old('edad') }}">
+                                <input id="edad" type="number" min="1" class="form-control" name="edad" value="{{ old('edad') }}">
                                 {!! $errors->first('edad','<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
