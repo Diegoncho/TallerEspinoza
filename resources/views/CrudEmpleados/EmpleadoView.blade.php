@@ -6,8 +6,8 @@
 
 <link rel="stylesheet" href="{{ asset('css/reporte.css') }}">
 
-    <div class="row" id="row">
-        <div class="col-md-8 col-md-offset-2">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-plus">
 
             <div class="module-reporte" id="module-reporte">
 
@@ -72,6 +72,7 @@
                             <div class="reporte-text">{{ $Empleados->sexo }}</div>
                         </div>
                     </div>
+                    
                     <div class="reporte-unity flex">
                         <div class="reporte-post">AFP:</div>
                         <div class="reporte-text">{{ $Empleados->afp }}</div>
@@ -108,7 +109,7 @@ function genPDF() {
             var img = canvas.toDataURL('image/png');
             var doc = new jsPDF();
             doc.addImage(img, 'JPEG',20,20);
-            doc.save('Empleado{{ $Empleados->nombres }}.pdf');
+            doc.save('Empleado{{ $Empleados->id }}.pdf');
         }
     });
 }
