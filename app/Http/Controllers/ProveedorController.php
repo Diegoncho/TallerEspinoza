@@ -20,6 +20,13 @@ class ProveedorController extends Controller
         return view('CrudProveedores.proveedor' , compact('Proveedores'));
     }
 
+    public function view($id){
+
+        $Proveedores = Proveedores::findOrFail($id);
+
+        return view('CrudProveedores.proveedorView', compact('Proveedores'));
+    }
+
     public function create(){
 
         return view('CrudProveedores.proveedorAdd');
