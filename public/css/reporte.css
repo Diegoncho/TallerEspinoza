@@ -8,8 +8,14 @@
     font-size: 13px;
     background: #fff;
     width: 650px;
-    height: 100%;
+    height: 600px;
     padding: 15px;
+}
+
+@media (min-width: 992px){
+    .col-md-offset-plus {
+        margin-left: 19.666667%;
+    }
 }
 
 .header-reporte h1{
@@ -39,7 +45,6 @@
     margin-bottom: 10px;
     border: 1px solid #000;
     width: 100%;
-    height: 100%;
     padding: 12px 5px 12px 5px;
 }
 
