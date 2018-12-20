@@ -24,14 +24,14 @@
             
             <p>Hay {{ $VistaVehiculos->total() }} vehiculos</p>
             <hr>
-
+ 
             <table class="table table-striped">
             <thead>
-                <th>#</th>
-                <th>Marca</th>
-                <th>Modelo</th>
-                <th>Color</th>
-                <th>Año</th>
+                <th class="col-md-1">#</th>
+                <th class="col-md-3">Marca</th>
+                <th class="col-md-2">Modelo</th>
+                <th class="col-md-2">Color</th>
+                <th class="col-md-2">Año</th>
                 <th>Acción</th>
             </thead>
 
@@ -44,7 +44,7 @@
                     <td>{{ $row->color }}</td>
                     <td>{{ $row->anio }}</td>
                     <td>
-                        <a href="" class="btn btn-info"><span class="icon-visibility"></span></a>
+                        <a href="{{ route('vehiculoView', $row->id) }}" class="btn btn-info"><span class="icon-visibility"></span></a>
                         <a href="{{ route('vehiculoEdit', $row->id) }}" class="btn btn-warning"><span class="icon-mode_edit"></span></a>
                         <a href="#" class="btn btn-danger"><span class="icon-highlight_off"></span></a>
                     </td>
