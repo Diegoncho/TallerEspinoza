@@ -6,9 +6,10 @@
 
 <link rel="stylesheet" href="{{ asset('css/reporte.css') }}">
 
-    <div class="row">
+    <div class="row" id="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="module-reporte">
+
+            <div class="module-reporte" id="module-reporte">
 
                 <div class="header-reporte flexbox">
                     <div class="hash-report">
@@ -18,7 +19,7 @@
                     <div class="logo-reporte"></div>
                 </div> 
 
-                <div class="p">
+                <div class="space-round">
                     <div class="img-reporte" style="background:url('../img/{{ $Empleados->img }}');
                                 background-size:cover;
                                 background-position:center;
@@ -94,13 +95,23 @@
 
             </div>
 
-            <a href="#" class="btn btn-link"><i class="icon-cloud_download"></i> Descargar PDF</a>
+            <a href="#" onclick="javascript:genPDF();" class="btn btn-link"><i class="icon-cloud_download"></i> Descargar PDF</a>
+
         </div>
     </div>
 
 <script type="text/javascript">
-    $('.module-reporte').click(function() {
-        window.print();
+
+function genPDF() {
+    html2canvas(document.getElementById('module-reporte'), {
+        onrendered: function (canvas) {
+            var img = canvas.toDataURL('image/png');
+            var doc = new jsPDF();
+            doc.addImage(img, 'JPEG',20,20);
+            doc.save('Empleado{{ $Empleados->nombres }}.pdf');
+        }
     });
+}
+
 </script>
 @endsection

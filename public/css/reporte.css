@@ -5,10 +5,11 @@
 }
 
 .module-reporte{
+    font-size: 13px;
     background: #fff;
-    width: 100%;
+    width: 650px;
     height: 100%;
-    padding: 20px 40px 20px 40px;
+    padding: 15px;
 }
 
 .header-reporte h1{
