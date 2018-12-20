@@ -84,6 +84,12 @@ Route::get('/clienteAdd', function(){
 });
 Route::get('clienteAdd', 'ClienteController@create')->name('clienteAdd');
 
+/* Vista de Reporte Cliente */
+Route::get('/clienteView/{id}', function($id){
+    return view('clienteView');
+});
+Route::get('/clienteView/{id}', 'ClienteController@view')->name('clienteView');
+
 /* Formulario de Editar Cliente */
 Route::get('/clienteEdit/{id}', function($id){
     return view('clienteEdit');
@@ -115,6 +121,12 @@ Route::get('/proveedorAdd', function(){
     return view('proveedorAdd');
 });
 Route::get('proveedorAdd', 'ProveedorController@create')->name('proveedorAdd');
+
+/* Vista de Reporte Proveedor */
+Route::get('/proveedorView/{id}', function($id){
+    return view('proveedorView');
+});
+Route::get('/proveedorView/{id}', 'ProveedorController@view')->name('proveedorView');
 
 /* Formulario de Editar Proveedor */
 Route::get('/proveedorEdit/{id}', function($id){
@@ -148,6 +160,12 @@ Route::get('/productoAdd', function(){
 });
 Route::get('productoAdd', 'ProductoController@create')->name('productoAdd');
 
+/* Vista de Reporte Producto */
+Route::get('/productoView/{id}', function($id){
+    return view('productoView');
+});
+Route::get('/productoView/{id}', 'ProductoController@view')->name('productoView');
+
 /* Formulario de Editar Producto */
 Route::get('/productoEdit/{id}', function($id){
     return view('productoEdit');
@@ -179,6 +197,12 @@ Route::get('/vehiculoAdd', function(){
     return view('vehiculoAdd');
 });
 Route::get('vehiculoAdd', 'VehiculoController@create')->name('vehiculoAdd');
+
+/* Vista de Reporte Vehiculo */
+Route::get('/vehiculoView/{id}', function($id){
+    return view('vehiculoView');
+});
+Route::get('/vehiculoView/{id}', 'VehiculoController@view')->name('vehiculoView');
 
 /* Formulario de Editar Vehiculo */
 Route::get('/vehiculoEdit/{id}', function($id){
@@ -212,6 +236,12 @@ Route::get('/transporteAdd', function(){
 });
 Route::get('transporteAdd', 'TransporteController@create')->name('transporteAdd');
 
+/* Vista de Reporte Transporte */
+Route::get('/transporteView/{id}', function($id){
+    return view('transporteView');
+});
+Route::get('/transporteView/{id}', 'TransporteController@view')->name('transporteView');
+
 /* Formulario de Editar Transporte */
 Route::get('/transporteEdit/{id}', function($id){
     return view('transporteEdit');
@@ -243,6 +273,12 @@ Route::get('/mecanicaAdd', function(){
     return view('mecanicaAdd');
 });
 Route::get('mecanicaAdd', 'MecanicaController@create')->name('mecanicaAdd');
+
+/* Vista de Reporte Mecanica */
+Route::get('/mecanicaView/{id}', function($id){
+    return view('mecanicaView');
+});
+Route::get('/mecanicaView/{id}', 'MecanicaController@view')->name('mecanicaView');
 
 /* Formulario de Editar Mecanica */
 Route::get('/mecanicaEdit/{id}', function($id){
