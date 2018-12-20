@@ -7,8 +7,9 @@
 <link rel="stylesheet" href="{{ asset('css/reporte.css') }}">
 
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="module-reporte">
+        <div class="col-md-8 col-md-offset-plus">
+            
+            <div class="module-reporte" id="module-reporte">
 
                 <div class="header-reporte flexbox">
                     <div class="hash-report">
@@ -22,7 +23,7 @@
                 <div class="panel-reporte">
                     <div class="reporte-unity flex">
                         <div class="reporte-post">Modelo:</div>
-                        <div class="reporte-text">{{ $VistaVehiculos->modelo }} {{ $Empleados->apellidos }}</div>
+                        <div class="reporte-text">{{ $VistaVehiculos->modelo }}</div>
                     </div>
 
                     <div class="reporte-unity flex">
@@ -36,7 +37,6 @@
                     </div>
 
                     <div class="group-reporte flex">
-
                         <div class="reporte-unity flex" style="width:50%">
                             <div class="reporte-post">Matricula:</div>
                             <div class="reporte-text">{{ $Vehiculos->matricula }}</div>
@@ -51,7 +51,23 @@
 
             </div>
 
-            <a href="#" class="btn btn-link"><i class="icon-cloud_download"></i> Descargar PDF</a>
+            <a href="#" onclick="javascript:genPDF();" class="btn btn-link"><i class="icon-cloud_download"></i> Descargar PDF</a>
+      
         </div>
     </div>
+
+<script type="text/javascript">
+
+function genPDF() {
+    html2canvas(document.getElementById('module-reporte'), {
+        onrendered: function (canvas) {
+            var img = canvas.toDataURL('image/png');
+            var doc = new jsPDF();
+            doc.addImage(img, 'JPEG',20,20);
+            doc.save('Vehiculo{{ $Vehiculos->id }}.pdf');
+        }
+    });
+}
+
+</script>
 @endsection
