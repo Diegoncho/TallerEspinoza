@@ -36,16 +36,14 @@
                         <div class="reporte-text">{{ $Clientes->telefono }}</div>
                     </div>
 
-                    <div class="group-reporte flex">
-                        <div class="reporte-unity flex" style="width:50%">
-                            <div class="reporte-post">DUI:</div>
-                            <div class="reporte-text">{{ $Clientes->dui }}</div>
-                        </div>
+                    <div class="reporte-unity flex">
+                        <div class="reporte-post">DUI:</div>
+                        <div class="reporte-text">{{ $Clientes->dui }}</div>
+                    </div>
 
-                        <div class="reporte-unity flex" style="width:50%">
-                            <div class="reporte-post">NIT:</div>
-                            <div class="reporte-text">{{ $Clientes->nit }}</div>
-                        </div>
+                    <div class="reporte-unity flex">
+                        <div class="reporte-post">NIT:</div>
+                        <div class="reporte-text">{{ $Clientes->nit }}</div>
                     </div>
                 </div>
 

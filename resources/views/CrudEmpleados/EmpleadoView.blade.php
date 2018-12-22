@@ -42,6 +42,11 @@
                     </div>
 
                     <div class="reporte-unity flex">
+                        <div class="reporte-post">Departamento:</div>
+                        <div class="reporte-text">{{ $VistaEmpleados->nombre }}</div>
+                    </div>
+
+                    <div class="reporte-unity flex">
                         <div class="reporte-post">Teléfono:</div>
                         <div class="reporte-text">{{ $Empleados->telefono }}</div>
                     </div>
