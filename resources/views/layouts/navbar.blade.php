@@ -44,7 +44,7 @@
 </div>
 
 <script type="text/javascript">  
-        (function () {
+    (function () {
         var form_nav = document.getElementById('form_nav');
         form_nav.addEventListener('submit',SweetAlert_nav);
         
