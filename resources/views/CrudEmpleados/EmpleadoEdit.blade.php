@@ -182,7 +182,7 @@
     $(document).ready(function() {
         $("#fecha_nac").datepicker({
         changeYear:true,
-        yearRange: "1950:2018"
+        yearRange: "1950:2100"
         });
     });
 
