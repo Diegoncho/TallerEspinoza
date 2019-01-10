@@ -59,24 +59,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group {{ $errors->has('precio_mayoreo') ? 'has-error' : ''}}">
-                            <label for="precio_mayoreo" class="col-md-4 control-label">Precio Mayoreo</label>
-
-                            <div class="col-md-6">
-                                <input id="precio_mayoreo" readonly type="text" class="form-control" name="precio_mayoreo">
-                                {!! $errors->first('precio_mayoreo','<span class="help-block">:message</span>') !!}
-                            </div>
-                        </div>
-
-                        <div class="form-group {{ $errors->has('precio_regular') ? 'has-error' : ''}}">
-                            <label for="precio_regular" class="col-md-4 control-label">Precio Regular</label>
-
-                            <div class="col-md-6">
-                                <input id="precio_regular" readonly type="text" class="form-control" name="precio_regular">
-                                {!! $errors->first('precio_regular','<span class="help-block">:message</span>') !!}
-                            </div>
-                        </div>
-
                         <div class="form-group {{ $errors->has('mecanica_id') ? 'has-error' : ''}}">
                             <div class="posting-read">Agregar Mecanica <i class="icon-format_color_fill"></i></div>
 
