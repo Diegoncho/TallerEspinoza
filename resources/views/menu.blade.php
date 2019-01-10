@@ -36,7 +36,7 @@
         </div>
     </a>
 
-    <a href="{{ route('factura') }}">
+    <a href="#">
         <div class="panel-module" id="panel-module-3">
             <div class="module-icon">
                 <i class="icon-content_paste"></i>
