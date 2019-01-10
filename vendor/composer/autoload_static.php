@@ -379,6 +379,7 @@ class ComposerStaticInit713de9055dd86bace2858aa86b9ef261
     );
 
     public static $classMap = array (
+        'App\\CabeceraFactura' => __DIR__ . '/../..' . '/app/CabeceraFactura.php',
         'App\\Clientes' => __DIR__ . '/../..' . '/app/Clientes.php',
         'App\\Compras' => __DIR__ . '/../..' . '/app/Compras.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
@@ -394,6 +395,7 @@ class ComposerStaticInit713de9055dd86bace2858aa86b9ef261
         'App\\Http\\Controllers\\CompraController' => __DIR__ . '/../..' . '/app/Http/Controllers/CompraController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\EmpleadoController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmpleadoController.php',
+        'App\\Http\\Controllers\\FacturaController' => __DIR__ . '/../..' . '/app/Http/Controllers/FacturaController.php',
         'App\\Http\\Controllers\\MecanicaController' => __DIR__ . '/../..' . '/app/Http/Controllers/MecanicaController.php',
         'App\\Http\\Controllers\\MenuController' => __DIR__ . '/../..' . '/app/Http/Controllers/MenuController.php',
         'App\\Http\\Controllers\\ModeloController' => __DIR__ . '/../..' . '/app/Http/Controllers/ModeloController.php',
