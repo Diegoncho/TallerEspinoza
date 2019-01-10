@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=BenchNine');
+
+*{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body{
+    font-family: 'BenchNine', sans-serif;
+}
+
+@media print {
+    a{
+        display: none;
+    }
+
+    body{
+        background: none;
+    }
+}
+
+a{
+    color: #3097d1;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #216a94;
+}
+
+.container{
+    width: 555px;
+    background: #fff;
+    border: 1px solid #d3e0e9;
+    border-radius: 3px;
+    margin: auto;
+    padding: 0px 20px 20px 20px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #fff;
+}
+
+h1{
+    font-size: 50px;
+    margin: 15px 0px;
+}
+
+h2{
+    text-align: center;
+    margin: 10px 0px;
+}
+
+h4{
+    margin: 0;
+}
+
+p{
+    margin: 0;
+}
+
+strong{
+    font-weight: unset;
+}
+
+img{
+    width: 220px;
+}
+
+.table-info {
+    border-right: 1px solid #d3e0e9;
+    border-left: 1px solid #d3e0e9;
+    border-bottom: 1px solid #d3e0e9;
+    border-top: 1px solid #d3e0e9;
+    background: #F7F7F7;
+}
+
+.table-info td{
+    text-align: center;
+    padding: 5px 0px 20px 0px;
+}
+
+.table-data{
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #fff;
+}
+
+.table-data tbody td{
+    border: 1px solid #d3e0e9;
+    padding: 5px;
+}
