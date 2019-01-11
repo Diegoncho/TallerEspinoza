@@ -60,6 +60,7 @@
     {{ method_field('DELETE') }}                           
 </form>
 
+@section('scripts')
 <script type="text/javascript">
         $(document).ready(function (){
             $('.btn-danger').click(function (e){
@@ -82,5 +83,6 @@
             });
         });
 </script>
+@endsection
 
 @endsection

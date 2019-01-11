@@ -107,6 +107,7 @@
         </div>
     </div>
 
+@section('scripts')
 <script type="text/javascript">
     $( function() {
         var dateFormat = "mm/dd/yy",
@@ -140,5 +141,6 @@
         }
     });
 </script>
+@endsection
 
 @endsection

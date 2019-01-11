@@ -149,6 +149,7 @@
     </a>
 </div>
 
+@section('scripts')
 <script type="text/javascript">
         $(function() {
           $('#panel-module-1').hover(function() {
@@ -240,5 +241,6 @@
           });
         });
 </script>
+@endsection
 
 @endsection

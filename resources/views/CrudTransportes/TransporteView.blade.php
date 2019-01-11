@@ -65,6 +65,7 @@
         </div>
     </div>
 
+@section('scripts')
 <script type="text/javascript">
 
 function genPDF() {
@@ -79,4 +80,6 @@ function genPDF() {
 }
 
 </script>
+@endsection
+
 @endsection
