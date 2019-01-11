@@ -83,4 +83,16 @@
             </div>
         </div>
 
+@section('scripts')
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $('#telefono').mask("9999-9999")
+        $('#dui').mask("99999999-9")
+        $('#nit').mask("9999-999999-999-9")
+    });
+
+</script>
+@endsection
+
 @endsection
