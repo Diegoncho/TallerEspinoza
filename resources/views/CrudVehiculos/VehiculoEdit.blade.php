@@ -18,7 +18,7 @@
                             <label for="idmarca" class="col-md-1">Marca</label>
 
                             <div class="col-md-12">
-                                <select name="marca_id" id="marca_id" class="form-control">       
+                                <select name="marca_id" id="marca_id" class="form-control selectpicker" data-show-subtext="true" data-live-search="true">       
                                     <option value="{{ $VistaVehiculos->marca_id }}">{{ $VistaVehiculos->marca }}</option>
                                     
                                 @foreach($Vmarcas as $row)
@@ -33,7 +33,7 @@
                             <label for="idmodelo" class="col-md-1">Modelo</label>
 
                             <div class="col-md-12">
-                                <select name="modelo_id" id="modelo_id" class="form-control">       
+                                <select name="modelo_id" id="modelo_id" class="form-control selectpicker" data-show-subtext="true" data-live-search="true">       
                                     <option value="{{ $VistaVehiculos->modelo_id }}">{{ $VistaVehiculos->modelo }}</option>
                                     
                                 @foreach($Modelos as $row)

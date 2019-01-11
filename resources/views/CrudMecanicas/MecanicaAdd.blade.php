@@ -57,7 +57,7 @@
                             <label for="id_empleado" class="col-md-4 control-label">Empleado</label>
 
                             <div class="col-md-6">
-                                <select name="empleado_id" id="empleado_id" class="form-control">       
+                                <select name="empleado_id" id="empleado_id" class="form-control selectpicker" data-show-subtext="true" data-live-search="true">       
                                     <option Selected disabled>Seleccione el Empleado</option>
                                     
                                 @foreach($Empleados as $row)

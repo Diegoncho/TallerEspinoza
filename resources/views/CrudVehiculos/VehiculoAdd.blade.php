@@ -19,7 +19,7 @@
                             <label for="idmarca" class="col-md-4 control-label">Marca</label>
 
                             <div class="col-md-6">
-                                <select name="marca_id" id="marca_id" class="form-control">       
+                                <select name="marca_id" id="marca_id" class="form-control selectpicker" data-show-subtext="true" data-live-search="true">       
                                     <option Selected disabled>Seleccione la Marca</option>
                                     
                                 @foreach($Vmarcas as $row)
@@ -34,7 +34,7 @@
                             <label for="idmodelo" class="col-md-4 control-label">Modelo</label>
 
                             <div class="col-md-6">
-                                <select name="modelo_id" id="modelo_id" class="form-control">       
+                                <select name="modelo_id" id="modelo_id" class="form-control selectpicker" data-show-subtext="true" data-live-search="true">       
                                     <option Selected disabled>Seleccione el Modelo</option>
                                     
                                 @foreach($Modelos as $row)

@@ -28,7 +28,7 @@
                             <label for="idmarca" class="col-md-4 control-label">Marca</label>
 
                             <div class="col-md-6">
-                                <select name="marca_id" id="marca_id" class="form-control">       
+                                <select name="marca_id" id="marca_id" class="form-control selectpicker" data-show-subtext="true" data-live-search="true">       
                                     <option Selected disabled>Seleccione la Marca</option>
                                     
                                 @foreach($Pmarcas as $row)
