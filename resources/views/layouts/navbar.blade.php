@@ -23,6 +23,8 @@
         </div>
 </div>
 
+
+@section('navbar-script')
 <script type="text/javascript">  
     (function () {
         var form_nav = document.getElementById('form_nav');
@@ -61,3 +63,4 @@
         }
     })();
 </script>
+@endsection
