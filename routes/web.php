@@ -394,3 +394,24 @@ Route::delete('/vmarca/{id}', 'VmarcaController@delete');
 /*---------------------------------------*/
 
 
+//CRUD DE FACTURAS//
+/*---------------------------------------*/
+/* Listar Facturas */
+Route::get('/factura', function(){
+    return view('factura');
+});
+Route::get('factura', 'ComprobanteController@index')->name('factura');
+
+/* Formulario de Registrar Facturas */
+Route::get('/facturaAdd', function(){
+    return view('facturaAdd');
+});
+Route::get('facturaAdd', 'ComprobanteController@create')->name('facturaAdd');
+
+
+/* Datos para EasyAutocomplete */
+Route::get('factura/findClient', 'ComprobanteController@findClient');
+
+/*---------------------------------------*/
+
+
