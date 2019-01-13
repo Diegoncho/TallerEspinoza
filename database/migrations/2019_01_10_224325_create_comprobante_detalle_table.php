@@ -14,7 +14,7 @@ class CreateComprobanteDetalleTable extends Migration
     public function up()
     {
         Schema::create('comprobante_detalle', function (Blueprint $table) {
-            $table->integer('comprobante_id')->unsigned();
+            $table->integer('comprobantes_id')->unsigned();
             $table->integer('producto_id')->unsigned();
             $table->integer('mecanica_id')->unsigned();
             $table->decimal('cantidad', 10,2);
@@ -24,7 +24,7 @@ class CreateComprobanteDetalleTable extends Migration
 
             //Relaciones
 
-            $table->foreign('comprobante_id')->references('id')->on('comprobantes')
+            $table->foreign('comprobantes_id')->references('id')->on('comprobantes')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
