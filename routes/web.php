@@ -30,6 +30,7 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('menu', 'MenuController@index')->name('menu');
 Route::get('submenu', 'MenuController@index2')->name('submenu');
 Route::get('submenuAdd', 'MenuController@index3')->name('submenuAdd');
+Route::get('submenuRepo', 'MenuController@index4')->name('submenuRepo');
 /*---------------------------------------*/
 
 //CRUD DE EMPLEADOS//
@@ -428,7 +429,43 @@ Route::post('/facturaAdd', 'ComprobanteController@post');
 /* Datos para EasyAutocomplete */
 Route::get('factura/findClient', 'ComprobanteController@findClient');
 Route::get('factura/findProduct', 'ComprobanteController@findProduct');
-Route::get('factura/findMecanica', 'ComprobanteController@findMecanica');
+/*---------------------------------------*/
+
+
+//CRUD DE MFACTURAS//
+/*---------------------------------------*/
+/* Listar Mfacturas */
+Route::get('/Mfactura', function(){
+    return view('Mfactura');
+});
+Route::get('Mfactura', 'McomprobanteController@index')->name('Mfactura');
+
+/* Formulario de Registrar Mfactura */
+Route::get('/MfacturaAdd', function(){
+    return view('MfacturaAdd');
+});
+Route::get('MfacturaAdd', 'McomprobanteController@create')->name('MfacturaAdd');
+
+/* Formulario de Detalle Mfactura */
+Route::get('/MfacturaDetail/{id}', function($id){
+    return view('MfacturaDetail');
+});
+Route::get('/MfacturaDetail/{id}', 'McomprobanteController@detail')->name('MfacturaDetail');
+
+/* Vista de Reporte Mfactura */
+Route::get('/MfacturaPdf/{id}', function($id){
+    return view('MfacturaPdf');
+});
+Route::get('/MfacturaPdf/{id}', 'McomprobanteController@pdf')->name('MfacturaPdf');
+
+
+/* Agregar Mfactura */
+Route::post('/MfacturaAdd', 'McomprobanteController@post');
+
+
+/* Datos para EasyAutocomplete */
+Route::get('Mfactura/findClient', 'McomprobanteController@findClient');
+Route::get('Mfactura/findMecanica', 'McomprobanteController@findMecanica');
 /*---------------------------------------*/
 
 

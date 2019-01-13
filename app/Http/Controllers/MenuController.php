@@ -25,4 +25,9 @@ class MenuController extends Controller
     {
         return view("submenuAdd");
     }
+
+    public function index4()
+    {
+        return view("submenuRepo");
+    }
 }
