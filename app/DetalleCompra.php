@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class DetalleCompra extends Model
 {
-    public $timestaps = false;
-    
-    protected $fillable = [
-        'id', 'compra_id', 'producto_id', 'cantidad', 'precio_unitario'
-    ];
+    public $table = "compra_detalle";
+
+    public function product(){
+        return $this->belongsTo('App\Productos', 'producto_id');
+    }
 }

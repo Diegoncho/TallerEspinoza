@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Compras extends Model
 {
-    public $timestaps = false;
-    
-    protected $fillable = [
-        'id', 'proveedor_id', 'fecha',
-        'subtotal', 'descuento', 'total'
-    ];
+    public function detail(){
+        return $this->hasMany('App\DetalleCompra', 'compra_id');
+    }
+
+    public function client(){
+        return $this->belongsTo('App\Proveedores','proveedor_id');
+    }
 }
