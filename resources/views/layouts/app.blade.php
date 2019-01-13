@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="<?php echo csrf_token() ?>"/>
     <title>Taller</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('fonts/style.css') }}">
@@ -18,13 +19,6 @@
 
 <!-- jquery Principal-->
 <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-
-<!-- Script para Riot -->
-<script src="{{ asset('bower_components/riot/riot.min.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/riot@3.7/riot+compiler.min.js"></script>
-
-<!-- Script para EasyAutocomplete -->
-<script src="{{ asset('bower_components/EasyAutocomplete/dist/jquery.easy-autocomplete.min.js') }}"></script>
 
 <!-- jquery para Sweetalert -->
 <script src="{{ asset('sweetalert/sweetalert.min.js') }}"></script>
@@ -43,6 +37,17 @@
 
 <!-- jquery para Masked-Input -->
 <script src="{{ asset('js/jquery.maskedinput.min.js') }}"></script>
+
+<!-- Script para Inicialización -->
+<script src="{{asset('ini.js')}}"></script>
+
+<!-- Script para Riot -->
+<script src="{{ asset('bower_components/riot/riot.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/riot@3.7/riot+compiler.min.js"></script>
+
+<!-- Script para EasyAutocomplete -->
+<script src="{{ asset('bower_components/EasyAutocomplete/dist/jquery.easy-autocomplete.min.js') }}"></script>
+
 
 @yield('scripts')
 @yield('navbar-script')
