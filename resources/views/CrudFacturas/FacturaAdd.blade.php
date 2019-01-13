@@ -6,6 +6,9 @@
 
     <div class="row">
         <div class="col-md-12">
+        
+        <a href="{{ route('factura') }}" class="btn btn-link"><i class="icon-description"></i> Listado de Comprobantes</a>
+
             <div class="panel panel-default" style="min-width: 830px">
                 <div class="panel-heading">
                     Nuevo comprobante
