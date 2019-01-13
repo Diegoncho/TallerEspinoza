@@ -15,7 +15,6 @@ class CreateComprobantesTable extends Migration
     {
         Schema::create('comprobantes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('fecha',255);
             $table->integer('cliente_id')->unsigned();
             $table->decimal('iva', 10,2);
             $table->decimal('subtotal', 10,2);
