@@ -54,7 +54,7 @@
                             <label for="id_empleado" class="col-md-1">Empleado</label>
 
                             <div class="col-md-12">
-                                <select name="empleado_id" id="empleado_id" class="form-control">       
+                                <select name="empleado_id" id="empleado_id" class="form-control selectpicker" data-show-subtext="true" data-live-search="true">       
                                     <option value="{{ $VistaMecanicas->empleado_id }}">{{ $VistaMecanicas->nombres }} {{ $VistaMecanicas->apellidos }}</option>
                                     
                                 @foreach($Empleados as $row)

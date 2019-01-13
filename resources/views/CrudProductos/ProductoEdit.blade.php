@@ -27,7 +27,7 @@
                             <label for="idmarca" class="col-md-1">Marca</label>
 
                             <div class="col-md-12">
-                                <select name="marca_id" id="marca_id" class="form-control">       
+                                <select name="marca_id" id="marca_id" class="form-control selectpicker" data-show-subtext="true" data-live-search="true">       
                                     <option value="{{ $VistaProductos->marca_id }}">{{ $VistaProductos->marca }}</option>
                                     
                                 @foreach($Pmarcas as $row)

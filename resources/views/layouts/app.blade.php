@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('fonts/style.css') }}">
     <link rel="stylesheet" href="{{ asset('bower_components/EasyAutocomplete/dist/easy-autocomplete.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-select.min.css') }}">
 </head>
 <body>
     <div class="container">
@@ -38,6 +39,11 @@
 <!-- jquery para Masked-Input -->
 <script src="{{ asset('js/jquery.maskedinput.min.js') }}"></script>
 
+<!-- jquery para Select-Complete -->
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.js') }}"></script>
+<script src="{{ asset('js/bootstrap-select.js') }}"></script>
+
 <!-- Script para Inicialización -->
 <script src="{{asset('ini.js')}}"></script>
 
@@ -57,5 +63,5 @@
         return '{{ url('') }}/' + url;
     }
 </script>
-
 </html>
+

@@ -45,7 +45,7 @@
                             <label for="id_empleado" class="col-md-3">Empleado</label>
 
                             <div class="col-md-12">
-                                <select name="empleado_id" id="empleado_id" class="form-control">       
+                                <select name="empleado_id" id="empleado_id" class="form-control selectpicker" data-show-subtext="true" data-live-search="true">       
                                     <option value="{{ $VistaTransportes->empleado_id }}">{{ $VistaTransportes->nombres }} {{ $VistaTransportes->apellidos }}</option>
                                     
                                 @foreach($Empleados as $row)
@@ -60,7 +60,7 @@
                             <label for="id_vehiculo" class="col-md-3">Vehiculo</label>
 
                             <div class="col-md-12">
-                                <select name="vehiculo_id" id="vehiculo_id" class="form-control">       
+                                <select name="vehiculo_id" id="vehiculo_id" class="form-control selectpicker" data-show-subtext="true" data-live-search="true">       
                                     <option value="{{ $VistaTransportes->vehiculo_id }}">{{ $VistaTransportes->modelo }}</option>
                                     
                                 @foreach($VistaVehiculos as $row)
