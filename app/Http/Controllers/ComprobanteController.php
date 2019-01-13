@@ -34,9 +34,9 @@ class ComprobanteController extends Controller
         return view('CrudFacturas.factura', ['model' => $this->_comprobanteRepo->getAll()]);
     }
 
-    public function edit($id){
+    public function detail($id){
 
-        return view('CrudFacturas.facturaEdit', ['model' => $this->_comprobanteRepo->get($id)]);
+        return view('CrudFacturas.facturaDetail', ['model' => $this->_comprobanteRepo->get($id)]);
     }
     
     public function pdf($id){

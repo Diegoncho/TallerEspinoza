@@ -408,11 +408,11 @@ Route::get('/facturaAdd', function(){
 });
 Route::get('facturaAdd', 'ComprobanteController@create')->name('facturaAdd');
 
-/* Formulario de Editar Factura */
-Route::get('/facturaEdit/{id}', function($id){
-    return view('facturaEdit');
+/* Formulario de Detalle Factura */
+Route::get('/facturaDetail/{id}', function($id){
+    return view('facturaDetail');
 });
-Route::get('/facturaEdit/{id}', 'ComprobanteController@edit')->name('facturaEdit');
+Route::get('/facturaDetail/{id}', 'ComprobanteController@detail')->name('facturaDetail');
 
 /* Vista de Reporte Factura */
 Route::get('/facturaPdf/{id}', function($id){
@@ -428,6 +428,7 @@ Route::post('/facturaAdd', 'ComprobanteController@post');
 /* Datos para EasyAutocomplete */
 Route::get('factura/findClient', 'ComprobanteController@findClient');
 Route::get('factura/findProduct', 'ComprobanteController@findProduct');
+Route::get('factura/findMecanica', 'ComprobanteController@findMecanica');
 /*---------------------------------------*/
 
 
