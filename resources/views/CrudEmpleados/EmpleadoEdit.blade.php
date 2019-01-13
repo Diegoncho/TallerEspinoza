@@ -96,7 +96,7 @@
                             <label for="iddepartamento" class="col-md-1">Departamento</label>
 
                             <div class="col-md-12">
-                                <select name="departamento_id" id="departamento_id" class="form-control">       
+                                <select name="departamento_id" id="departamento_id" class="form-control selectpicker" data-show-subtext="true" data-live-search="true">       
                                     <option value="{{ $VistaEmpleados->departamento_id }}">{{ $VistaEmpleados->nombre }}</option>
                                     
                                 @foreach($Departamentos as $row)
@@ -185,6 +185,13 @@
         changeYear:true,
         yearRange: "1950:2100"
         });
+    });
+
+    $(document).ready(function(){
+        $('#telefono').mask("9999-9999")
+        $('#dui').mask("99999999-9")
+        $('#nit').mask("9999-999999-999-9")
+        $('#afp').mask("999999999999")
     });
 
 </script>

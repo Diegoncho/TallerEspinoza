@@ -90,4 +90,14 @@
             </div>
         </div>
 
+@section('scripts')
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $('#telefono').mask("9999-9999")
+    });
+
+</script>
+@endsection
+
 @endsection

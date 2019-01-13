@@ -93,7 +93,7 @@
                             <label for="iddepartamento" class="col-md-4 control-label">Departamento</label>
 
                             <div class="col-md-6">
-                                <select name="departamento_id" id="departamento_id" class="form-control">       
+                                <select name="departamento_id" id="departamento_id" class="form-control selectpicker" data-show-subtext="true" data-live-search="true">       
                                     <option Selected disabled>Seleccione el Departamento</option>
                                     
                                 @foreach($Departamentos as $row)
@@ -160,7 +160,7 @@
                         </form>
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
 
 @section('scripts')
@@ -171,6 +171,13 @@
         changeYear:true,
         yearRange: "1950:2100"
         });
+    });
+
+    $(document).ready(function(){
+        $('#telefono').mask("9999-9999")
+        $('#dui').mask("99999999-9")
+        $('#nit').mask("9999-999999-999-9")
+        $('#afp').mask("999999999999")
     });
 
 </script>

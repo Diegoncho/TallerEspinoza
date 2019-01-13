@@ -94,5 +94,19 @@
 
         </div>
     </div>
+    
+@section('scripts')
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $('#matricula').mask("a999-999")
+    });
+
+    $(document).ready(function(){
+        $('#anio').mask("9999")
+    });
+
+</script>
+@endsection
 
 @endsection
