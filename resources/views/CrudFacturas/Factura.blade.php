@@ -23,25 +23,30 @@
                             <th style="width:100px;" class="text-right">IVA</th>
                             <th style="width:160px;" class="text-right">Sub Total</th>
                             <th style="width:160px;" class="text-right">Total</th>
-                            <th style="width:100px;" class="text-right">Creado</th>
+                            <th style="width:180px;" class="text-right">Creado</th>
+                            <th style="width:30px;"></th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        @for ($i = 1; $i < 10; $i++)
-                        @php
-                            $total    = 1180 * $i;
-                            $subtotal = $total / 1.18;
-                            $iva      = $total - $subtotal;
-                        @endphp
+                    @foreach($model as $row)
                         <tr>
-                            <td>Clientes {{$i}}</td>
-                            <td class="text-right">{{ number_format($iva, 2) }}</td>
-                            <td class="text-right">{{ number_format($subtotal, 2) }}</td>
-                            <td class="text-right">{{ number_format($total, 2) }}</td>
-                            <td class="text-right">02/02/2016</td>
+                            <td>
+                                <a href="{{ route('facturaEdit', $row->id) }}">
+                                    {{ $row->client->nombres }} {{ $row->client->apellidos }}
+                                </a>
+                            </td>
+                            <td class="text-right">$ {{ number_format($row->iva, 2) }}</td>
+                            <td class="text-right">$ {{ number_format($row->subtotal, 2) }}</td>
+                            <td class="text-right">$ {{ number_format($row->total, 2) }}</td>
+                            <td class="text-right">{{ $row->created_at  }}</td>
+                            <td class="text-right">
+                                <a href="{{ route('facturaPdf', $row->id) }}"class="btn btn-success btn-block btn-xs">
+                                    <i class="icon-description"></i> Descargar
+                                </a>
+                            </td>
                         </tr>
-                        @endfor
+                    @endforeach
                     </tbody>
                 </table>
                 </div>
