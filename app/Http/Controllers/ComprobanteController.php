@@ -8,7 +8,7 @@ use App\Repositories\ClienteRepository;
 use App\Repositories\ProductoRepository;
 use App\Repositories\ComprobanteRepository;
 
-
+use App\Comprobantes;
 
 class ComprobanteController extends Controller
 {
@@ -29,9 +29,11 @@ class ComprobanteController extends Controller
         $this->_comprobanteRepo = $comprobanteRepo;
     }
 
-    public function index(){
+    public function index(Request $request){
 
-        return view('CrudFacturas.factura', ['model' => $this->_comprobanteRepo->getAll()]);
+        $model = Comprobantes::name($request->get('name'))->orderby('id','DESC')->paginate(7);
+
+        return view('CrudFacturas.factura', compact('model'));
     }
 
     public function detail($id){
