@@ -16,7 +16,7 @@ class CreateComprobanteDetalleTable extends Migration
         Schema::create('comprobante_detalle', function (Blueprint $table) {
             $table->integer('comprobantes_id')->unsigned();
             $table->integer('producto_id')->unsigned();
-            $table->decimal('cantidad', 10,2);
+            $table->integer('cantidad');
             $table->decimal('precio_unitario', 10,2);
             $table->decimal('total', 10,2);
             $table->timestamps();
