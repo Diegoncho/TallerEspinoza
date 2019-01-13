@@ -24,10 +24,6 @@
 <!-- jquery para Sweetalert -->
 <script src="{{ asset('sweetalert/sweetalert.min.js') }}"></script>
 
-<!-- jquery para Datepicker -->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
 <!-- jquery para LightBox -->
 <script src="{{ asset('ligthbox/lightbox.js') }}"></script>
 <link rel="stylesheet" href="{{ asset('ligthbox/lightbox.css') }}">
@@ -40,7 +36,6 @@
 <script src="{{ asset('js/jquery.maskedinput.min.js') }}"></script>
 
 <!-- jquery para Select-Complete -->
-<script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap.js') }}"></script>
 <script src="{{ asset('js/bootstrap-select.js') }}"></script>
 
@@ -53,6 +48,10 @@
 
 <!-- Script para EasyAutocomplete -->
 <script src="{{ asset('bower_components/EasyAutocomplete/dist/jquery.easy-autocomplete.min.js') }}"></script>
+
+<!-- jquery para Datepicker -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 
 @yield('scripts')
