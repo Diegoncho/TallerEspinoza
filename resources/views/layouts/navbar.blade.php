@@ -15,6 +15,8 @@
 
             <a href="{{ route('submenuAdd') }}"><i class="icon-control_point"></i> Agregar</a>
 
+            <a href="{{ route('factura') }}"><i class="icon-description"></i> Reporte</a>
+
             <form action="{{ route('logout') }}" method="POST" id="form_nav">
                 {{ csrf_field() }}
         
