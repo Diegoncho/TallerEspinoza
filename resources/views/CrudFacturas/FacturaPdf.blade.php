@@ -37,7 +37,7 @@
             <td>{{ $model->client->nombres }} {{ $model->client->apellidos }}</td>
         </tr>
         <tr>
-            <th>Teléfonoc</th>
+            <th>Teléfono</th>
             <td>{{ $model->client->telefono }}</td>
         </tr>
         <tr>
