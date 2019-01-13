@@ -32,7 +32,7 @@
                     @foreach($model as $row)
                         <tr>
                             <td>
-                                <a href="{{ route('facturaEdit', $row->id) }}">
+                                <a href="{{ route('facturaDetail', $row->id) }}">
                                     {{ $row->client->nombres }} {{ $row->client->apellidos }}
                                 </a>
                             </td>
@@ -51,6 +51,8 @@
                 </table>
                 </div>
             </div>
+
+            {{ $model->render() }}
         </div>  
     </div>
 

@@ -22,7 +22,7 @@ class ComprobanteRepository
 
     public function getAll(){
 
-        return $this->model->orderBy('id', 'desc')->get();
+        return $this->model->orderBy('id', 'desc')->paginate(7); 
     }
 
     public function save($data){
