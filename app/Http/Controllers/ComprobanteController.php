@@ -60,6 +60,8 @@ class ComprobanteController extends Controller
 
     public function post(Request $request){
 
+        $res = false;
+
         $data = (object)[
             'iva' => $request->input('iva'),
             'subtotal' => $request->input('subtotal'),
@@ -78,11 +80,29 @@ class ComprobanteController extends Controller
 
             $Productos = Productos::findOrFail($d['id']);
 
-            $Productos->cantidad = $Productos->cantidad - $d['cantidad'];
-            $Productos->save();
+            if($Productos->cantidad > 0){
+                if($d['cantidad'] <= $Productos->cantidad){
+                    $res = true;
+
+                    $Productos->cantidad = $Productos->cantidad - $d['cantidad'];
+                    $Productos->save();  
+                }
+            }
+
+            else{
+                $res = false;
+            }
                
         }
-        return $this->_comprobanteRepo->save($data);
+
+        if($res == true){
+            return $this->_comprobanteRepo->save($data);
+        }
+
+        else{
+            return $this->_comprobanteRepo->save('');
+        }
+
     }
 
     public function findClient(Request $request){

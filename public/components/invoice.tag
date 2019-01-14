@@ -130,7 +130,7 @@
                 if(r.response) {
                     window.location.href = baseUrl('factura');
                 } else {
-                    alert('Ocurrio un error');
+                    alert('Hay un producto fuera de existencia o limitado!!');
                 }
             }, 'json')
         }
