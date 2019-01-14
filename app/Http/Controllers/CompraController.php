@@ -68,9 +68,8 @@ class CompraController extends Controller
 
             $Compras->save();
 
-            $Productos = new Productos;
-            $Productos->cantidad = $Producto->cantidad + $Compras->cantidad;
-            $Productos->save();
+            $Producto->cantidad = $Producto->cantidad + $Compras->cantidad;
+            $Producto->save();
 
             return redirect('/compra');
     }
