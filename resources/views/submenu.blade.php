@@ -36,13 +36,27 @@
         </div>
     </a>
 
-    <a href="{{ route('producto') }}">
+    <a href="{{ route('compra') }}">
         <div class="panel-module" id="panel-module-3">
+            <div class="module-icon">
+                <i class="icon-add_shopping_cart"></i>
+            </div>
+
+            <div class="module-title" id="module-title-3">Buscar un Compra.</div>
+
+            <div class="module-footer">
+                Personalizado a tus necesidades.
+            </div>
+        </div>
+    </a>
+
+    <a href="{{ route('producto') }}">
+        <div class="panel-module" id="panel-module-4">
             <div class="module-icon">
                 <i class="icon-style"></i>
             </div>
 
-            <div class="module-title" id="module-title-3">Buscar un Producto.</div>
+            <div class="module-title" id="module-title-4">Buscar un Producto.</div>
             
             <div class="module-footer">
                 Personalizado a tus necesidades.
@@ -51,12 +65,12 @@
     </a>
 
     <a href="{{ route('proveedor') }}">
-        <div class="panel-module" id="panel-module-4">
+        <div class="panel-module" id="panel-module-5">
             <div class="module-icon">
                 <i class="icon-people"></i>
             </div>
 
-            <div class="module-title" id="module-title-4">Buscar un Proveedor.</div>
+            <div class="module-title" id="module-title-5">Buscar un Proveedor.</div>
             
             <div class="module-footer">
                 Personalizado a tus necesidades.
@@ -65,12 +79,12 @@
     </a>
 
     <a href="{{ route('vehiculo') }}">
-        <div class="panel-module" id="panel-module-5">
+        <div class="panel-module" id="panel-module-6">
             <div class="module-icon">
                 <i class="icon-time_to_leave"></i>
             </div>
 
-            <div class="module-title" id="module-title-5">Buscar un Vehiculo.</div>
+            <div class="module-title" id="module-title-6">Buscar un Vehiculo.</div>
             
             <div class="module-footer">
                 Personalizado a tus necesidades.
@@ -79,12 +93,12 @@
     </a>
     
     <a href="{{ route('transporte') }}">
-        <div class="panel-module" id="panel-module-6">
+        <div class="panel-module" id="panel-module-7">
             <div class="module-icon">
                 <i class="icon-local_shipping"></i>
             </div>
 
-            <div class="module-title" id="module-title-6">Buscar un Transporte.</div>
+            <div class="module-title" id="module-title-7">Buscar un Transporte.</div>
             
             <div class="module-footer">
                 Personalizado a tus necesidades.
@@ -93,12 +107,12 @@
     </a>
 
     <a href="{{ route('mecanica') }}">
-        <div class="panel-module" id="panel-module-7">
+        <div class="panel-module" id="panel-module-8">
             <div class="module-icon">
                 <i class="icon-format_color_fill"></i>
             </div>
 
-            <div class="module-title" id="module-title-7">Buscar una Mecanica.</div>
+            <div class="module-title" id="module-title-8">Buscar una Mecanica.</div>
             
             <div class="module-footer">
                 Personalizado a tus necesidades.
@@ -107,12 +121,12 @@
     </a>
 
     <a href="{{ route('modelo') }}">
-        <div class="panel-module" id="panel-module-8">
+        <div class="panel-module" id="panel-module-9">
             <div class="module-icon">
                 <i class="icon-subway"></i>
             </div>
 
-            <div class="module-title" id="module-title-8">Buscar un Modelo.</div>
+            <div class="module-title" id="module-title-9">Buscar un Modelo.</div>
             
             <div class="module-footer">
                 Personalizado a tus necesidades.
@@ -121,12 +135,12 @@
     </a>
 
     <a href="{{ route('pmarca') }}">
-        <div class="panel-module" id="panel-module-9">
+        <div class="panel-module" id="panel-module-10">
             <div class="module-icon">
                 <i class="icon-local_offer"></i>
             </div>
 
-            <div class="module-title" id="module-title-9">Buscar Marca Producto.</div>
+            <div class="module-title" id="module-title-10">Buscar Marca Producto.</div>
             
             <div class="module-footer">
                 Personalizado a tus necesidades.
@@ -135,12 +149,12 @@
     </a>
 
     <a href="{{ route('vmarca') }}">
-        <div class="panel-module" id="panel-module-10">
+        <div class="panel-module" id="panel-module-11">
             <div class="module-icon">
                 <i class="icon-loyalty"></i>
             </div>
 
-            <div class="module-title" id="module-title-10">Buscar Marca Vehiculo.</div>
+            <div class="module-title" id="module-title-11">Buscar Marca Vehiculo.</div>
             
             <div class="module-footer">
                 Personalizado a tus necesidades.
@@ -238,6 +252,15 @@
           }, function() {
             // vuelve a dejar el <div> como estaba al hacer el "mouseout"
             $('#module-title-10').css('color', '');
+          });
+        });
+
+        $(function() {
+          $('#panel-module-11').hover(function() {
+            $('#module-title-11').css('color', '#019ACF');
+          }, function() {
+            // vuelve a dejar el <div> como estaba al hacer el "mouseout"
+            $('#module-title-11').css('color', '');
           });
         });
 </script>
