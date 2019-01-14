@@ -15,32 +15,38 @@
 
             <form  action="{{ route('compra') }}" class="navbar-form navbar-left pull-right" method="GET" role="search">
                 <div class="form-group">
-                    <input type="text" class="form-control" name="name" placeholder="fecha de la compra">
+                    <input type="text" class="form-control" name="name" placeholder="Fecha de la compra">
                 </div>
                 <button type="submit" class="btn btn-default">Buscar</button>
             </form>
 
             <a href="{{ route('compraAdd') }}" class="btn btn-primary">Registrar nueva compra</a>
             
-            <p>Hay {{ $Compras->total() }} compras</p>
+            <p>Hay {{ $VistaCompras->total() }} compras</p>
             <hr>
 
             <table class="table table-striped">
             <thead>
                 <th>#</th>
-                <th>Proveedor</th>
                 <th>Fecha</th>
+                <th>Proveedor</th>
                 <th>Producto</th>
+                <th>Descuento</th>
+                <th>Subtotal</th>
+                <th>Total</th>
                 <th>Acción</th>
             </thead>
 
             <tbody>
-            @foreach($Compras as $row)
+            @foreach($VistaCompras as $row)
                 <tr data-id="{{ $row->id }}">
                     <td>{{ $row->id }}</td>
-                    <td>{{ $row->proveedor_id }}</td>
                     <td>{{ $row->fecha }}</td>
-                    <td>{{ $row->producto_id }}</td>
+                    <td>{{ $row->proveedor }}</td>
+                    <td>{{ $row->producto }}</td>
+                    <td>$ {{ $row->descuento }}</td>
+                    <td>$ {{ $row->subtotal }}</td>
+                    <td>$ {{ $row->total }}</td>
                     <td>
                         <a href="{{ route('compraView', $row->id) }}" class="btn btn-info"><span class="icon-visibility"></span></a>
                         <a href="#" class="btn btn-danger"><span class="icon-highlight_off"></span></a>
@@ -52,7 +58,7 @@
         </div>
     </div>
 
-{{ $Compras->render() }}
+{{ $VistaCompras->render() }}
 
 <form action="{{ route('compra') }}/id" method="POST" id="form-delete">
     {{ csrf_field() }}
