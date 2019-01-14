@@ -9,6 +9,7 @@ use App\Repositories\ProductoRepository;
 use App\Repositories\ComprobanteRepository;
 
 use App\Comprobantes;
+use App\Productos;
 
 class ComprobanteController extends Controller
 {
@@ -74,8 +75,13 @@ class ComprobanteController extends Controller
                 'precio_unitario' => $d['precio_unitario'],
                 'total' => $d['total']
             ];
-        }
 
+            $Productos = Productos::findOrFail($d['id']);
+
+            $Productos->cantidad = $Productos->cantidad - $d['cantidad'];
+            $Productos->save();
+               
+        }
         return $this->_comprobanteRepo->save($data);
     }
 
