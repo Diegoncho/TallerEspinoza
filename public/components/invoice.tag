@@ -20,7 +20,7 @@
             <input id="product" class="form-control" type="text" placeholder="Nombre del producto"/>
         </div>
         <div class="col-xs-2">
-            <input id="quantity" class="form-control" type="text" placeholder="Cantidad"/>
+            <input id="quantity" class="form-control" type="number" min="1" pattern="^[0-9]+" placeholder="Cantidad"/>
         </div>
         <div class="col-xs-2">
             <div class="input-group">
