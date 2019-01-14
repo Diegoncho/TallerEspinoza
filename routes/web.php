@@ -395,6 +395,35 @@ Route::delete('/vmarca/{id}', 'VmarcaController@delete');
 /*---------------------------------------*/
 
 
+//CRUD DE COMPRAS//
+/*---------------------------------------*/
+/* Listar Compras */
+Route::get('/compra', function(){
+    return view('compra');
+});
+Route::get('compra', 'CompraController@index')->name('compra');
+
+/* Formulario de Registrar Compras */
+Route::get('/compraAdd', function(){
+    return view('compraAdd');
+});
+Route::get('compraAdd', 'CompraController@create')->name('compraAdd');
+
+/* Vista de Reporte Compras */
+Route::get('/compraView/{id}', function($id){
+    return view('compraView');
+});
+Route::get('/compraView/{id}', 'CompraController@view')->name('compraView');
+
+
+/* Agregar Compras */
+Route::post('/compraAdd', 'CompraController@post');
+
+/* Eliminar Compras */
+Route::delete('/compra/{id}', 'CompraController@delete');
+/*---------------------------------------*/
+
+
 //CRUD DE FACTURAS//
 /*---------------------------------------*/
 /* Listar Facturas */
