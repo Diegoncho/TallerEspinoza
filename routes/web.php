@@ -468,4 +468,3 @@ Route::get('Mfactura/findClient', 'McomprobanteController@findClient');
 Route::get('Mfactura/findMecanica', 'McomprobanteController@findMecanica');
 /*---------------------------------------*/
 
-
