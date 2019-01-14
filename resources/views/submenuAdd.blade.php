@@ -147,7 +147,7 @@
             </div>
         </div>
     </a>
-</div>
+ </div>
 
 @section('scripts')
 <script type="text/javascript">
