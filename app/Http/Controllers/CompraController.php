@@ -2,90 +2,97 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request,PDF;
 
-use App\Proveedores;
-use App\Productos;
+use App\Repositories\ProveedorRepository;
+use App\Repositories\ProductoRepository;
+use App\Repositories\CompraRepository;
+
 use App\Compras;
-use App\VistaCompras;
+use App\Productos;
 
 class CompraController extends Controller
 {
-    public function __construct(){
+    private $_proveedorRepo;
+    private $_productoRepo;
+    private $_compraRepo;
+
+    public function __construct(
+        ProveedorRepository $proveedorRepo,
+        ProductoRepository $productoRepo,
+        CompraRepository $compraRepo
+    )
+    {
         $this->middleware('auth');
+
+        $this->_proveedorRepo = $proveedorRepo;
+        $this->_productoRepo = $productoRepo;
+        $this->_compraRepo = $compraRepo;
     }
 
     public function index(Request $request){
 
-        $VistaCompras = VistaCompras::name($request->get('name'))->orderby('id','ASC')->paginate(7);
+        $model = Compras::name($request->get('name'))->orderby('id','DESC')->paginate(7);
 
-        return view('CrudCompras.compra' , compact('VistaCompras'));
+        return view('CrudCompras.compra', compact('model'));
     }
 
-    public function view($id){
+    public function detail($id){
 
-        $VistaCompras = VistaCompras::findOrFail($id);
-        $Compras = Compras::findOrFail($id);
+        return view('CrudCompras.compraDetail', ['model' => $this->_compraRepo->get($id)]);
+    }
     
-        return view('CrudCompras.compraView', compact('VistaCompras','Compras'));
+    public function pdf($id){
+        $model = $this->_compraRepo->get($id);
+        $compra_name = sprintf('compra-%s.pdf', str_pad ($model->id, 7, '0', STR_PAD_LEFT));
+
+        $pdf = PDF::loadView('CrudCompras.compraPdf', [
+            'model' => $model
+        ]);
+
+        return $pdf->download($compra_name);
     }
 
     public function create(){
-        
-        $Proveedores = Proveedores::all();
-        $Productos = Productos::all();
 
-        return view('CrudCompras.compraAdd', compact('Proveedores','Productos'));
+        return view('CrudCompras.compraAdd');
     }
 
     public function post(Request $request){
 
-        $validator = Validator::make($request->all(),[
-            'proveedor_id' => 'required',
-            'fecha' => 'required|date',
-            'producto_id' => 'required',
-            'cantidad' => 'required',
-            'descuento' => 'required',
-        ]);
+        $data = (object)[
+            'iva' => $request->input('iva'),
+            'subtotal' => $request->input('subtotal'),
+            'total' => $request->input('total'),
+            'proveedor_id' => $request->input('proveedor_id'),
+            'detail' => []
+        ];
 
-        if ($validator->fails()) {
-            return redirect('/compraAdd')
-            ->withInput()
-            ->withErrors($validator);
-        }
+        foreach($request->input('detail') as $d){
+            $data->detail[] = (object)[
+                'producto_id' => $d['id'],
+                'cantidad' => $d['cantidad'],
+                'precio_unitario' => $d['precio_unitario'],
+                'total' => $d['total']
+            ];
 
-            $Compras = new Compras;
+            $Productos = Productos::findOrFail($d['id']);
 
-            $Compras->proveedor_id = $request->proveedor_id;
-            $Compras->fecha = $request->fecha;
-            $Compras->producto_id = $request->producto_id;
-            $Compras->cantidad = $request->cantidad;
-            $Compras->descuento = $request->descuento;
-
-            $Productos = Productos::findOrFail($request->producto_id);
-
-            $Compras->total = $Productos->precio_costo * $Compras->cantidad;
-            $Compras->subtotal =  $Compras->total / $Compras->descuento;
-            $Compras->descuento = $Compras->total - $Compras->subtotal;
-
-            $Compras->save();
-
-            $Productos->cantidad = $Productos->cantidad + $Compras->cantidad;
-
+            $Productos->cantidad = $Productos->cantidad + $d['cantidad'];
             $Productos->save();
-
-            return redirect('/compra');
+               
+        }
+        return $this->_compraRepo->save($data);
     }
 
-    public function delete($id){
-        
-        $Compras = Compras::findOrFail($id);
+    public function findProveedor(Request $request){
 
-        $Compras->delete();
-
-        \Session::flash('message', $Compras->id.' Fue eliminado.');
-
-        return redirect('/compra');
+        return $this->_proveedorRepo->findByName($request->input('q'));
     }
+
+    public function findProduct(Request $request){
+
+        return $this->_productoRepo->findByName($request->input('q'));
+    }
+
 }

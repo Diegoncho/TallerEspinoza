@@ -4,90 +4,63 @@
 
 @include('layouts.navbar')
 
-    <div class="panel panel-default" style="min-width: 800px">
-        <div class="panel-heading" style="background:#f9f9f9"><b>Listado de compras</b></div>
-        <div class="panel-body">
-            @if (Session::has('message'))
-                <div class="alert alert-success">
-                    <i class="icon-check_circle"></i> {{ Session::get('message') }}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default" style="min-width: 800px">
+                <div class="panel-heading" style="background:#f9f9f9"><b>Listado de compras</b></div>
+                <div class="panel-body">
+                    <form  action="{{ route('compra') }}" class="navbar-form navbar-left pull-right" method="GET" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="name" placeholder="Buscar # compra">
+                        </div>
+                        <button type="submit" class="btn btn-default">Buscar</button>
+                    </form>
+
+                    <a href="{{ route('compraAdd') }}" class="btn btn-primary">Registrar nueva compra</a>
+
+                    <p>Hay {{ $model->total() }} compras</p>
+                    <hr>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Proveedor</th>
+                            <th style="width:100px;" class="text-right">IVA</th>
+                            <th style="width:160px;" class="text-right">Sub Total</th>
+                            <th style="width:160px;" class="text-right">Total</th>
+                            <th style="width:180px;" class="text-right">Creado</th>
+                            <th style="width:30px;"></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                    @foreach($model as $row)
+                        <tr>
+                            <td>{{ str_pad ($row->id, 7, '0', STR_PAD_LEFT)}}</td>
+                            <td>
+                                <a href="{{ route('compraDetail', $row->id) }}">
+                                    {{ $row->proveedor->nombre_proveedor }}
+                                </a>
+                            </td>
+                            <td class="text-right">$ {{ number_format($row->iva, 2) }}</td>
+                            <td class="text-right">$ {{ number_format($row->subtotal, 2) }}</td>
+                            <td class="text-right">$ {{ number_format($row->total, 2) }}</td>
+                            <td class="text-right">{{ $row->created_at  }}</td>
+                            <td class="text-right">
+                                <a href="{{ route('compraPdf', $row->id) }}"class="btn btn-success btn-block btn-xs">
+                                    <i class="icon-description"></i> Descargar
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
                 </div>
-            @endif
+            </div>
 
-            <form  action="{{ route('compra') }}" class="navbar-form navbar-left pull-right" method="GET" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" name="name" placeholder="Fecha de la compra">
-                </div>
-                <button type="submit" class="btn btn-default">Buscar</button>
-            </form>
-
-            <a href="{{ route('compraAdd') }}" class="btn btn-primary">Registrar nueva compra</a>
-            
-            <p>Hay {{ $VistaCompras->total() }} compras</p>
-            <hr>
-
-            <table class="table table-striped">
-            <thead>
-                <th>#</th>
-                <th>Fecha</th>
-                <th>Proveedor</th>
-                <th>Producto</th>
-                <th>Descuento</th>
-                <th>Subtotal</th>
-                <th>Total</th>
-                <th>Acción</th>
-            </thead>
-
-            <tbody>
-            @foreach($VistaCompras as $row)
-                <tr data-id="{{ $row->id }}">
-                    <td>{{ $row->id }}</td>
-                    <td>{{ $row->fecha }}</td>
-                    <td>{{ $row->proveedor }}</td>
-                    <td>{{ $row->producto }}</td>
-                    <td>$ {{ $row->descuento }}</td>
-                    <td>$ {{ $row->subtotal }}</td>
-                    <td>$ {{ $row->total }}</td>
-                    <td>
-                        <a href="{{ route('compraView', $row->id) }}" class="btn btn-info"><span class="icon-visibility"></span></a>
-                        <a href="#" class="btn btn-danger"><span class="icon-highlight_off"></span></a>
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
-            </table>
-        </div>
+            {{ $model->render() }}
+        </div>  
     </div>
-
-{{ $VistaCompras->render() }}
-
-<form action="{{ route('compra') }}/id" method="POST" id="form-delete">
-    {{ csrf_field() }}
-    {{ method_field('DELETE') }}                           
-</form>
-
-@section('scripts')
-<script type="text/javascript">
-        $(document).ready(function (){
-            $('.btn-danger').click(function (e){
-                e.preventDefault();
-
-                var row = $(this).parents('tr');
-                var id = row.data('id');
-                var form = $('#form-delete');
-                var url = form.attr('action').replace('id', id);
-                var data = form.serialize();
-
-                row.fadeOut();
-
-                $.post(url, data, function(result){
-                }).fail(function (){
-                    alert('El registro no fue eliminado');
-                    row.show();
-                });
-                
-            });
-        });
-</script>
-@endsection
 
 @endsection

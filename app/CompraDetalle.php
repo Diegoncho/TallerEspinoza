@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DetalleCompra extends Model
+class CompraDetalle extends Model
 {
     public $table = "compra_detalle";
 

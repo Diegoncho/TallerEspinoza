@@ -16,11 +16,8 @@ class CreateComprasTable extends Migration
         Schema::create('compras', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('proveedor_id')->unsigned();
-            $table->string('fecha',255);
-            $table->integer('producto_id')->unsigned();
-            $table->integer('cantidad');
+            $table->decimal('iva', 10,2);
             $table->decimal('subtotal', 10,2);
-            $table->decimal('descuento', 10,2);
             $table->decimal('total', 10,2);
             $table->timestamps();
 
@@ -29,12 +26,8 @@ class CreateComprasTable extends Migration
             $table->foreign('proveedor_id')->references('id')->on('proveedores')
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
-        
-            $table->foreign('producto_id')->references('id')->on('productos')
-                    ->onDelete('cascade')
-                    ->onUpdate('cascade');
         });
-    } 
+    }
 
     /**
      * Reverse the migrations.

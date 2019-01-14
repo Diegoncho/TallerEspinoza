@@ -42,7 +42,7 @@
                 <i class="icon-add_shopping_cart"></i>
             </div>
 
-            <div class="module-title" id="module-title-3">Buscar un Compra.</div>
+            <div class="module-title" id="module-title-3">Buscar una Compra.</div>
 
             <div class="module-footer">
                 Personalizado a tus necesidades.

@@ -403,24 +403,32 @@ Route::get('/compra', function(){
 });
 Route::get('compra', 'CompraController@index')->name('compra');
 
-/* Formulario de Registrar Compras */
+/* Formulario de Registrar Compra */
 Route::get('/compraAdd', function(){
     return view('compraAdd');
 });
 Route::get('compraAdd', 'CompraController@create')->name('compraAdd');
 
-/* Vista de Reporte Compras */
-Route::get('/compraView/{id}', function($id){
-    return view('compraView');
+/* Formulario de Detalle Compra */
+Route::get('/compraDetail/{id}', function($id){
+    return view('compraDetail');
 });
-Route::get('/compraView/{id}', 'CompraController@view')->name('compraView');
+Route::get('/compraDetail/{id}', 'CompraController@detail')->name('compraDetail');
+
+/* Vista de Reporte Compra */
+Route::get('/compraPdf/{id}', function($id){
+    return view('compraPdf');
+});
+Route::get('/compraPdf/{id}', 'CompraController@pdf')->name('compraPdf');
 
 
-/* Agregar Compras */
+/* Agregar Compra */
 Route::post('/compraAdd', 'CompraController@post');
 
-/* Eliminar Compras */
-Route::delete('/compra/{id}', 'CompraController@delete');
+
+/* Datos para EasyAutocomplete */
+Route::get('compra/findProveedor', 'CompraController@findProveedor');
+Route::get('compra/findProduct', 'CompraController@findProduct');
 /*---------------------------------------*/
 
 

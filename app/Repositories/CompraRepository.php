@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use App\Compra;
-use App\DetalleCompra;
+use App\Compras;
+use App\CompraDetalle;
 use DB;
 
 class CompraRepository 
@@ -12,7 +12,7 @@ class CompraRepository
 
     public function __construct() {
 
-        $this->model = new Compra();
+        $this->model = new Compras();
     }
 
     public function get($id) {
@@ -42,7 +42,7 @@ class CompraRepository
 
             $detail = [];
             foreach($data->detail as $d) {
-                $obj = new DetalleCompra;
+                $obj = new CompraDetalle;
 
                 $obj->producto_id = $d->producto_id;
                 $obj->cantidad = $d->cantidad;

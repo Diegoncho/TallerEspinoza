@@ -43,7 +43,7 @@ class McomprobanteController extends Controller
     
     public function pdf($id){
         $model = $this->_McomprobanteRepo->get($id);
-        $Mcomprobante_name = sprintf('comprobante-%s.pdf', str_pad ($model->id, 7, '0', STR_PAD_LEFT));
+        $Mcomprobante_name = sprintf('Mcomprobante-%s.pdf', str_pad ($model->id, 7, '0', STR_PAD_LEFT));
 
         $pdf = PDF::loadView('CrudMfacturas.MfacturaPdf', [
             'model' => $model

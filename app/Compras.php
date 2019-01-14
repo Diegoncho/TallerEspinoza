@@ -6,10 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Compras extends Model
 {
-    public $timestaps = false;
-    
-    protected $fillable = [
-        'id', 'proveedor_id', 'fecha', 'producto_id', 'cantidad',
-        'subtotal', 'descuento', 'total'
-    ];
+    public function detail(){
+        return $this->hasMany('App\CompraDetalle', 'compras_id');
+    }
+
+    public function proveedor(){
+        return $this->belongsTo('App\Proveedores','proveedor_id');
+    }
+
+    public function scopeName($query, $name)
+    {
+        if (trim($name) != ""){
+
+            $query->where(\DB::raw("CONCAT(id)"), "LIKE", "%$name%");
+        }
+        
+    }
 }
