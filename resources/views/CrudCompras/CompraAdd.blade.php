@@ -10,13 +10,13 @@
                 <div class="panel-heading">Insertar Compra</div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" action="{{ route('CompraAdd') }}" method="POST" autocomplete="off">
+                        <form class="form-horizontal" action="{{ route('compraAdd') }}" method="POST" autocomplete="off">
                         {{ csrf_field() }}
 
                         <div class="form-group {{ $errors->has('fecha_recibido') ? 'has-error' : ''}}">
                             <div class="posting-read">Información de Compra <i class="icon-info"></i></div>
 
-                            <label for="fecha_recibido" class="col-md-4 control-label">Fecha de compra</label>
+                            <label for="fecha_recibido" class="col-md-4 control-label">Fecha de Compra</label>
 
                             <div class="col-md-6">
                                 <input id="fecha_recibido" readonly type="text" class="form-control" name="fecha" value="{{ old('fecha') }}">
@@ -25,9 +25,9 @@
                         </div>
 
                         <div class="form-group {{ $errors->has('proveedor_id') ? 'has-error' : ''}}">
-                            <div class="posting-read">Proveedor del producto <i class="icon-person"></i></div>
+                            <div class="posting-read">Tipo de Proveedor<i class="icon-person"></i></div>
 
-                            <label for="Proveedor_id" class="col-md-4 control-label">Proveedor</label>
+                            <label for="proveedor_id" class="col-md-4 control-label">Proveedor</label>
 
                             <div class="col-md-6">
                                 <select name="proveedor_id" id="proveedor_id" class="form-control selectpicker" data-show-subtext="true" data-live-search="true">       
@@ -41,11 +41,28 @@
                             </div>
                         </div>
 
-                        <div class="form-group {{ $errors->has('cantidad') ? 'has-error' : ''}}">
-                            <label for="cantidad" class="col-md-4 control-label">cantidad</label>
+                        <div class="form-group {{ $errors->has('producto_id') ? 'has-error' : ''}}">
+                            <div class="posting-read">Tipo de Producto<i class="icon-style"></i></div>
+
+                            <label for="producto_id" class="col-md-4 control-label">Producto</label>
 
                             <div class="col-md-6">
-                                <input id="cantidad" type="number" min="0" step="1" class="form-control" name="cantidad" value="{{ old('cantidad') }}">
+                                <select name="producto_id" id="producto_id" class="form-control selectpicker" data-show-subtext="true" data-live-search="true">       
+                                    <option Selected disabled>Seleccione el Producto</option>
+                                    
+                                @foreach($Productos as $row)
+                                    <option value="{{ $row->id }}">{{ $row->nombre }} </option>
+                                @endforeach
+                                </select>
+                                {!! $errors->first('producto_id','<span class="help-block">:message</span>') !!}
+                            </div>
+                        </div>
+
+                        <div class="form-group {{ $errors->has('cantidad') ? 'has-error' : ''}}">
+                            <label for="cantidad" class="col-md-4 control-label">Cantidad</label>
+
+                            <div class="col-md-6">
+                                <input id="cantidad" type="number" min="1" class="form-control" name="cantidad" value="{{ old('cantidad') }}">
                                 {!! $errors->first('cantidad','<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
