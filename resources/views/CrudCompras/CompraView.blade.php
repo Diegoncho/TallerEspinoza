@@ -23,47 +23,47 @@
                 <div class="panel-reporte">
 
                     <div class="group-reporte flex">
-                        <div class="reporte-unity flex" style="width:50%">
-                            <div class="reporte-post" style="width:37%">Fecha:</div>
-                            <div class="reporte-text">{{ $Compras->fecha }}</div>
+                        <div class="reporte-unity flex">
+                            <div class="reporte-post">Fecha:</div>
+                            <div class="reporte-text">{{ $VistaCompras->fecha }}</div>
                         </div>
                     </div>
 
                     <div class="reporte-unity flex">
                         <div class="reporte-post">Proveedor:</div>
-                        <div class="reporte-text">{{ $Proveedores->nombre_proveedor }}</div>
+                        <div class="reporte-text">{{ $VistaCompras->proveedor }}</div>
                     </div>
 
                     <div class="reporte-unity flex">
-                        <div class="reporte-post" style="width:27%">Producto:</div>
-                        <div class="reporte-text">{{ $Productos->nombre }}</div>
+                        <div class="reporte-post">Producto:</div>
+                        <div class="reporte-text">{{ $VistaCompras->producto }}</div>
                     </div>
 
-                        <div class="reporte-unity flex" style="width:50%">
-                            <div class="reporte-post" style="width:54%">Precio:</div>
-                            <div class="reporte-text">${{ $Productos->precio_costo }}</div>
+                        <div class="reporte-unity flex">
+                            <div class="reporte-post">Precio:</div>
+                            <div class="reporte-text">${{ $VistaCompras->precio_costo }}</div>
                         </div>
-                        <div class="reporte-unity flex" style="width:50%">
-                            <div class="reporte-post" style="width:54%">Cantidad:</div>
-                            <div class="reporte-text">${{ $Proveedores->cantidad }}</div>
+                        <div class="reporte-unity flex">
+                            <div class="reporte-post">Cantidad:</div>
+                            <div class="reporte-text">${{ $VistaCompras->cantidad }}</div>
                         </div>
-                        <div class="reporte-unity flex" style="width:50%">
-                            <div class="reporte-post" style="width:54%">Sub total:</div>
-                            <div class="reporte-text">${{ $Proveedores->sub_total }}</div>
+                        <div class="reporte-unity flex">
+                            <div class="reporte-post">Sub total:</div>
+                            <div class="reporte-text">${{ $VistaCompras->subtotal }}</div>
                         </div>
                 </div>
 
-                <div class="title-reporte">Total de la compra</div>
+                <div class="title-reporte">Total Compra</div>
                 <div class="panel-reporte">
                     <div class="group-reporte flex">
                         <div class="reporte-unity flex" style="width:50%">
-                            <div class="reporte-post" style="width:36%">descuento:</div>
-                            <div class="reporte-text">${{ $Proveedores->descuento }}</div>
+                            <div class="reporte-post">Descuento:</div>
+                            <div class="reporte-text">${{ $VistaCompras->descuento }}</div>
                         </div>
 
                         <div class="reporte-unity flex" style="width:50%">
-                            <div class="reporte-post" style="width:54%">Total:</div>
-                            <div class="reporte-text">${{ $Proveedores->total }}</div>
+                            <div class="reporte-post">Total:</div>
+                            <div class="reporte-text">${{ $VistaCompras->total }}</div>
                         </div>
                     </div>
                 </div>
@@ -83,7 +83,7 @@ function genPDF() {
             var img = canvas.toDataURL('image/png');
             var doc = new jsPDF();
             doc.addImage(img, 'JPEG',20,20);
-            doc.save('Mecanica{{ $Mecanicas->id }}.pdf');
+            doc.save('Compra{{ $Compras->id }}.pdf');
         }
     });
 }
