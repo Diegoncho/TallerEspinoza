@@ -1,6 +1,6 @@
 <div class="menu-application flexbox">
         <div class="auth flex">
-            <a href="../img/icon.png" data-lightbox="icon" data-title="photo-perfil">
+            <a href="../img/icon-bac.png" data-lightbox="icon" data-title="photo-perfil">
                 <div class="menu-icon"></div>
             </a>
             <div class="menu-text flexbox">

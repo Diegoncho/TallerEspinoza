@@ -30,7 +30,7 @@
         </div>
         <div class="col-xs-1">
             <button onclick={__addProductToDetail} class="btn btn-primary form-control" id="btn-agregar">
-                <i class="icon-add"></i>
+                <i class="icon-add"></i> 
             </button>
         </div>
     </div>

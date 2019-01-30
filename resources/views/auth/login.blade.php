@@ -7,6 +7,9 @@
 @endif
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
+
+        <div class="logo-application"></div>
+        
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h1 class="panel-title">Acceso a la aplicación</h1>
