@@ -78,29 +78,44 @@ class ComprobanteController extends Controller
                 'total' => $d['total']
             ];
 
+
             $Productos = Productos::findOrFail($d['id']);
 
             if($Productos->cantidad > 0){
                 if($d['cantidad'] <= $Productos->cantidad){
-                    $res = true;
-
                     $Productos->cantidad = $Productos->cantidad - $d['cantidad'];
-                    $Productos->save();  
+                    $res = true;
+                }
+
+                else{
+                    $res = false;
                 }
             }
 
             else{
                 $res = false;
             }
-               
+            
+            if($res == true){
+                \Session::flash('message-add', '¡Registro exitoso!');
+            }
+
+            else{
+                return $this->_comprobanteRepo->save('');
+            }
+
         }
 
         if($res == true){
-            return $this->_comprobanteRepo->save($data);
-        }
+            foreach($request->input('detail') as $p){
 
-        else{
-            return $this->_comprobanteRepo->save('');
+                $Productos = Productos::findOrFail($p['id']);
+                $Productos->cantidad = $Productos->cantidad - $p['cantidad'];
+                
+                $Productos->save();
+            }
+            
+            return $this->_comprobanteRepo->save($data);
         }
 
     }
